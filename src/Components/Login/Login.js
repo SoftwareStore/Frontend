@@ -1,15 +1,15 @@
 import React from 'react';
 
 class Login extends React.Component {
-    Loginform({Login,error}) {
-        const [details,setDetails] = useState({Email:"",Password:""});
-        const submitHantler = e =>{
-            e.preventDefault();
-            Login(details);
-        }        
-    }
+    //Loginform({Login,error}) {
+    //   const [details,setDetails] = useState({Email:"",Password:""});
+    //    const submitHantler = e =>{
+    //        e.preventDefault();
+    //        Login(details);
+    //    }        
+    //}
     render() {
-        return (<form onSubmit={submitHantler}>
+        return (<form >
             <h3>Sign In</h3>
 
             <div className="form-group">
