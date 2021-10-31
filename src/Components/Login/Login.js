@@ -1,4 +1,5 @@
 import React from 'react';
+import './Login.css'
 
 class Login extends React.Component {
     //Loginform({Login,error}) {
@@ -9,8 +10,10 @@ class Login extends React.Component {
     //    }        
     //}
     render() {
-        return (<form >
-            <h3>Sign In</h3>
+        return (
+        <div className="Login">
+            <form >
+            <h3>Login</h3>
 
             <div className="form-group">
                 <label>Email: </label>
@@ -33,6 +36,7 @@ class Login extends React.Component {
                 ¿Olvidó su <a href="#">password?</a>
             </p>
         </form>
+            </div>
         )
     }
 

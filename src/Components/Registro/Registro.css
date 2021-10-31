@@ -1,0 +1,16 @@
+.Registro {
+    padding: 60px 0;
+}
+
+.Registro form {
+    margin: 0 auto;
+    max-width: 320px;
+}
+
+/* body {
+    background: white !important;
+    min-height: 100vh;
+    display: flex;
+    font-weight: 400;
+    font-family: 'Fira Sans', sans-serif;
+} */

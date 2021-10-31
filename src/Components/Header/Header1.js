@@ -23,31 +23,31 @@ export default function App() {
           <div className='collapse navbar-collapse' id='navbarExample01'>
             <MDBNavbarNav right className='mb-2 mb-lg-0'>
               <MDBNavbarItem active>
-                <MDBNavbarLink aria-current='page' href='#'>
+                <MDBNavbarLink aria-current='page' href='/'>
                   Home
                 </MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink href='#'>Features</MDBNavbarLink>
+                <MDBNavbarLink href='/Login'>Login</MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink href='#'>Pricing</MDBNavbarLink>
+                <MDBNavbarLink href='/Registro'>Registro</MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink href='#'>About</MDBNavbarLink>
+                <MDBNavbarLink href='/'>About</MDBNavbarLink>
               </MDBNavbarItem>
             </MDBNavbarNav>
           </div>
         </MDBContainer>
       </MDBNavbar>
 
-      <div className='p-5 text-center bg-light'>
+      {/* <div className='p-5 text-center bg-light'>
         <h1 className='mb-3'>Heading</h1>
         <h4 className='mb-3'>Subheading</h4>
         <a className='btn btn-primary' href='' role='button'>
           Call to action
         </a>
-      </div>
+      </div> */}
     </header>
   );
 }
