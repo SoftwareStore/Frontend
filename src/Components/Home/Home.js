@@ -8,7 +8,7 @@ class Home extends React.Component {
 
             <div >
                
-                <div className='p-5 text-center bg-image' style={{ backgroundImage: { Onl }, height: 400 }}>
+                <div className='p-5 text-center bg-image' style={{ backgroundImage: { Onl }, height: 700 }}>
                     <div className='mask' style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}>
                         <div className='d-flex justify-content-center align-items-center h-100'>
                             <div className='text-white'>

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState ,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBRow, MDBCol, MDBBtn } from 'mdb-react-ui-kit';
 import './Main.css'
 
@@ -16,7 +16,11 @@ function Main(props) {
     });
   }, []);
   if (isLoading) {
-    return <div className="App">Loading...</div>;
+    return <div class="d-flex justify-content-center">
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
   }
 
 
