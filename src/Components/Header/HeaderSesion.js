@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-  import {
-    MDBNavbar,
-    MDBContainer,
-    MDBNavbarBrand,
-    MDBNavbarToggler,
-    MDBNavbarItem,
-    MDBNavbarLink,
-    MDBCollapse,
-    MDBBtn,
-    MDBNavbarNav,
-    MDBIcon
-  } from 'mdb-react-ui-kit';
-  import { MDBNavItem, MDBDropdownToggle, MDBDropdownItem, MDBDropdown, MDBDropdownMenu } from 'mdbreact';
-
+import {
+  MDBNavbar,
+  MDBContainer,
+  MDBNavbarBrand,
+  MDBNavbarToggler,
+  MDBNavbarItem,
+  MDBNavbarLink,
+  MDBCollapse,
+  MDBBtn,
+  MDBNavbarNav,
+  MDBIcon
+} from 'mdb-react-ui-kit';
+import { MDBNavItem, MDBDropdownToggle, MDBDropdownItem, MDBDropdown, MDBDropdownMenu } from 'mdbreact';
+import Logo from '../../Assets/Img/logoA.png'
 
 export default function App() {
   const [showNavNoTogglerThird, setShowNavNoTogglerThird] = useState(false);
@@ -31,7 +31,9 @@ export default function App() {
           >
             <MDBIcon icon='bars' fas />
           </MDBNavbarToggler>
-          <MDBNavbarBrand href='#'>Navbar</MDBNavbarBrand>
+          <MDBNavbarBrand href='/'>
+            <img src={Logo} className='logoA' style={{ width: '45px' }} />
+          </MDBNavbarBrand>
           <MDBCollapse navbar show={showNavNoTogglerThird}>
             <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>
               <MDBNavbarItem>
@@ -45,24 +47,19 @@ export default function App() {
               <MDBNavbarItem>
                 <MDBNavbarLink href='/ListCurso'>Listar cursos</MDBNavbarLink>
               </MDBNavbarItem>
-              <MDBNavbarItem>
-                <MDBNavbarLink disabled href='#' tabIndex={-1} aria-disabled='true'>
-                  Disabled
-                </MDBNavbarLink>
-              </MDBNavbarItem>
+             
             </MDBNavbarNav>
             <MDBDropdown tag='li' className='nav-item dropleft' >
-                                    <MDBDropdownToggle nav caret>
-                                        <MDBIcon icon="user" className="d-none d-md-inline"/>
-                                    </MDBDropdownToggle>
+              <MDBDropdownToggle nav caret>
+                <MDBIcon icon="user" className="d-none d-md-inline" />
+              </MDBDropdownToggle>
 
-                                    <MDBDropdownMenu className="dropdown-default ">
-                                        <MDBDropdownItem href="#!">Action</MDBDropdownItem>
-                                        <MDBDropdownItem href="#!">Another Action</MDBDropdownItem>
-                                        <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                                        <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                                    </MDBDropdownMenu>
-                                </MDBDropdown>
+              <MDBDropdownMenu className="dropdown-default ">
+                <MDBDropdownItem href="#!">Perfil</MDBDropdownItem>
+                <MDBDropdownItem href="#!">Crear curso</MDBDropdownItem>
+                <MDBDropdownItem href="#!">Cerrar sesion</MDBDropdownItem>
+              </MDBDropdownMenu>
+            </MDBDropdown>
 
           </MDBCollapse>
         </MDBContainer>
