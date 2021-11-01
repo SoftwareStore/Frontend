@@ -1,5 +1,7 @@
 import React from 'react';
-import './Login.css'
+import Botones from '../Utilidades/Botones';
+import Dividisor from '../Utilidades/Dividisor';
+import './Login.css';
 
 class Login extends React.Component {
     //Loginform({Login,error}) {
@@ -11,31 +13,35 @@ class Login extends React.Component {
     //}
     render() {
         return (
-        <div className="Login">
-            <form >
-            <h3>Login</h3>
+            <div className="Login">
+                <form >
+                    <h3>Login</h3>
 
-            <div className="form-group">
-                <label>Email: </label>
-                <input type="email" className="form-control" placeholder="Email" />
-            </div>
-            <div className="form-group">
-                <label>Password: </label>
-                <input type="password" className="form-control" placeholder="Password" />
-            </div>
+                    <div className="form-group">
+                        <label>Email: </label>
+                        <input type="email" className="form-control" placeholder="Email" />
+                    </div>
+                    <div className="form-group">
+                        <label>Password: </label>
+                        <input type="password" className="form-control" placeholder="Password" />
+                    </div>
 
-            <div className="form-group">
-                <div className="custom-control custom-checkbox">
-                    <input type="checkbox" className="custom-control-input" id="customCheck1" />
-                    <label className="custom-control-label" htmlFor="customCheck1">Recordar</label>
-                </div>
-            </div>
+                    <div className="form-group">
+                        <div className="custom-control custom-checkbox">
+                            <input type="checkbox" className="custom-control-input" id="customCheck1" />
+                            <label className="custom-control-label" htmlFor="customCheck1">Recordar</label>
+                        </div>
+                    </div>
 
-            <button type="submit" className="btn btn-primary btn-block">Iniciar Sesion</button>
-            <p className="forgot-password text-right">
-                ¿Olvidó su <a href="#">password?</a>
-            </p>
-        </form>
+                    <button type="submit" className="btn btn-primary btn-block">Iniciar Sesion</button>
+                    <br/>
+                    <p className="forgot-password text-center">
+                    <a href="#">¿Olvidó su password?</a>
+                    </p>
+
+                    <Dividisor>O</Dividisor>
+                    <Botones/>
+                </form>
             </div>
         )
     }

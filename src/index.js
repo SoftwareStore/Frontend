@@ -2,7 +2,7 @@ import React from 'react';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import reportWebVitals from './reportWebVitals';
 
 // Importar Componentes

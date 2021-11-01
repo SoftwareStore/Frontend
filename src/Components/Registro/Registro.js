@@ -1,5 +1,7 @@
 import React from 'react';
-import './Registro.css'
+import Botones from '../Utilidades/Botones';
+import Dividisor from '../Utilidades/Dividisor';
+import './Registro.css';
 
 class Registro extends React.Component {
     render() {
@@ -25,13 +27,17 @@ class Registro extends React.Component {
 
                     <div className="form-group">
                         <label>Password</label>
-                        <input type="password" className="form-control" placeholder="Enter password" />
+                        <input type="password" className="form-control" placeholder="password" />
                     </div>
 
                     <button type="submit" className="btn btn-primary btn-block">Registrar</button>
-                    <p className="forgot-password text-right">
+                    <br/>
+                    <p className="forgot-password text-center">
                         ¿Registrado? <a href="/Login">¿iniciar sesión?</a>
                     </p>
+
+                    <Dividisor>O</Dividisor>
+                    <Botones/>
                 </form>
             </div>
         )
