@@ -1,35 +1,71 @@
-import React from 'react';
+import React, { useState } from 'react';
+import {
+  MDBNavbar,
+  MDBContainer,
+  MDBNavbarBrand,
+  MDBNavbarToggler,
+  MDBNavbarItem,
+  MDBNavbarLink,
+  MDBCollapse,
+  MDBBtn,
+  MDBNavbarNav,
+  MDBIcon
+} from 'mdb-react-ui-kit';
+import { MDBNavItem, MDBDropdownToggle, MDBDropdownItem, MDBDropdown, MDBDropdownMenu } from 'mdbreact';
 
-class Header extends React.Component {
-    render(){
-        return(
-        <div className="container-fluid">
-            <label>ClassRoom</label>
+export default function App() {
+  const [showNavNoTogglerThird, setShowNavNoTogglerThird] = useState(false);
 
-            <div className="collapse navbar-collapse" id="navbarColor02">
-                <ul className="navbar-nav me-auto">
-                    <li className="nav-item">
-                        <a className="nav-link active" href="/">Home</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="/Login">Login</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="/Register">Registro</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="/ListCurs">ListCurs</a>
-                    </li>
-                </ul>
-                <form className="d-flex">
-                    <input className="form-control me-sm-2" type="text" placeholder="Search" />
-                    <button className="btn btn-secondary my-2 my-sm-0" type="submit">Busqueda</button>
-                </form>
-            </div>
-        </div>
-    )
-    }
+  return (
+    <>
+      <MDBNavbar expand='lg' light bgColor='light'>
+        <MDBContainer fluid>
+          <MDBNavbarToggler
+            type='button'
+            data-target='#navbarTogglerDemo03'
+            aria-controls='navbarTogglerDemo03'
+            aria-expanded='false'
+            aria-label='Toggle navigation'
+            onClick={() => setShowNavNoTogglerThird(!showNavNoTogglerThird)}
+          >
+            <MDBIcon icon='bars' fas />
+          </MDBNavbarToggler>
+          <MDBNavbarBrand href='#'>Navbar</MDBNavbarBrand>
+          <MDBCollapse navbar show={showNavNoTogglerThird}>
+            <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>
+              <MDBNavbarItem>
+                <MDBNavbarLink active aria-current='page' href='/'>
+                  Home
+                </MDBNavbarLink>
+              </MDBNavbarItem>
+              <MDBNavbarItem>
+                <MDBNavbarLink href='#'>About</MDBNavbarLink>
+              </MDBNavbarItem>
+              <MDBNavbarItem>
+                <MDBNavbarLink href='/ListCurso'>Listar cursos</MDBNavbarLink>
+              </MDBNavbarItem>
+              <MDBNavbarItem>
+                <MDBNavbarLink disabled href='#' tabIndex={-1} aria-disabled='true'>
+                  Disabled
+                </MDBNavbarLink>
+              </MDBNavbarItem>
+            </MDBNavbarNav>
+            <MDBDropdown tag='li' className='nav-item dropleft' >
+              <MDBDropdownToggle nav caret>
+                <MDBIcon icon="user" className="d-none d-md-inline" />
+              </MDBDropdownToggle>
 
+              <MDBDropdownMenu className="dropdown-default ">
+                <MDBDropdownItem href="#!">Action</MDBDropdownItem>
+                <MDBDropdownItem href="#!">Another Action</MDBDropdownItem>
+                <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
+                <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
+              </MDBDropdownMenu>
+            </MDBDropdown>
+
+          </MDBCollapse>
+        </MDBContainer>
+      </MDBNavbar>
+    </>
+  );
 }
-
-export default Header;
