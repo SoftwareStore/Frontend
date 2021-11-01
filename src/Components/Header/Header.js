@@ -50,7 +50,7 @@ export default function App() {
                 </MDBNavbarLink>
               </MDBNavbarItem>
             </MDBNavbarNav>
-            <MDBDropdown tag='li' className='nav-item dropleft' >
+            {/* <MDBDropdown tag='li' className='nav-item dropleft' >
               <MDBDropdownToggle nav caret>
                 <MDBIcon icon="user" className="d-none d-md-inline" />
               </MDBDropdownToggle>
@@ -61,7 +61,7 @@ export default function App() {
                 <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
                 <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
               </MDBDropdownMenu>
-            </MDBDropdown>
+            </MDBDropdown> */}
 
           </MDBCollapse>
         </MDBContainer>

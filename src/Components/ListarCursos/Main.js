@@ -1,32 +1,27 @@
 import React from 'react';
 import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBRow, MDBCol, MDBBtn } from 'mdb-react-ui-kit';
+import './Main.css'
+function Main(props) {
 
-function Main() {
+ const listData = [{code : 'ABC123',name:"Desarrollo de Software"},{code : 'ABC123',name:"Desarrollo de Software"},{code : 'ABC123',name:"Desarrollo de Software"},{code : 'ABC123',name:"Desarrollo de Software"},{code : 'ABC123',name:"Desarrollo de Software"},{code : 'ABC123',name:"Desarrollo de Software"},{code : 'ABC123',name:"Desarrollo de Software"},{code : 'ABC123',name:"Desarrollo de Software"},{code : 'ABC123',name:"Desarrollo de Software"}]
+
+  const listCards = listData.map((item) =>
+  <MDBCol sm='3'>
+  <MDBCard className='mb-4'>
+    <MDBCardBody>
+      <MDBCardTitle>{item.code}</MDBCardTitle>
+      <MDBCardText>
+       {item.name}
+      </MDBCardText>
+      <MDBBtn href='#'>Ingresar</MDBBtn>
+    </MDBCardBody>
+  </MDBCard>
+</MDBCol>)
+
   return (
-    <div className="">
-      <MDBRow>
-        <MDBCol sm='6'>
-          <MDBCard>
-            <MDBCardBody>
-              <MDBCardTitle>Special title treatment</MDBCardTitle>
-              <MDBCardText>
-                With supporting text below as a natural lead-in to additional content.
-              </MDBCardText>
-              <MDBBtn href='#'>Go somewhere</MDBBtn>
-            </MDBCardBody>
-          </MDBCard>
-        </MDBCol>
-        <MDBCol sm='6'>
-          <MDBCard>
-            <MDBCardBody>
-              <MDBCardTitle>Special title treatment</MDBCardTitle>
-              <MDBCardText>
-                With supporting text below as a natural lead-in to additional content.
-              </MDBCardText>
-              <MDBBtn href='#'>Go somewhere</MDBBtn>
-            </MDBCardBody>
-          </MDBCard>
-        </MDBCol>
+    <div className='cards-con'>
+      <MDBRow  >
+       {listCards}
       </MDBRow>
     </div>
   )
