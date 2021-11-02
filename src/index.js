@@ -10,7 +10,7 @@ import Home from './views/Home/Home'
 import Login from './views/Login/Login';
 import Registro from './views/Register/Register';
 import ListCurso from './views/ListarCursos/ListarCursos';
-
+import VerCurso from './views/VerCurso/VerCurso';
 
 // Stylos
 import './index.css';
@@ -21,15 +21,15 @@ import 'mdb-react-ui-kit/dist/css/mdb.min.css'
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-     
+
       <Route exact path="/" component={Home} />
       <Route exact path="/Login" component={Login} />
       <Route exact path="/Registro" component={Registro} />
       <Route exact path="/ListCurso" component={ListCurso} />
+      <Route exact path="/VerCurso" component={VerCurso} />
 
 
 
-   
     </Router>
   </React.StrictMode>,
   document.getElementById('root')
