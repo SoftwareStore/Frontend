@@ -22,7 +22,7 @@ function Main(props) {
       </div>
     </div>
   }
-
+console.log(data)
 
 
   const listCards = data.map((item) =>
@@ -33,7 +33,7 @@ function Main(props) {
           <MDBCardText>
             {item.Name}
           </MDBCardText>
-          <MDBBtn href='#'>Ingresar</MDBBtn>
+          <MDBBtn href={'/VerCurso/'+item.Code}>Ingresar</MDBBtn>
         </MDBCardBody>
       </MDBCard>
     </MDBCol>)

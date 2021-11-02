@@ -47,9 +47,9 @@ export default function App() {
               <MDBNavbarItem>
                 <MDBNavbarLink href='/ListCurso'>Listar cursos</MDBNavbarLink>
               </MDBNavbarItem>
-              <MDBNavbarItem>
+              {/* <MDBNavbarItem>
                 <MDBNavbarLink href='/VerCurso'>Ver curso</MDBNavbarLink>
-              </MDBNavbarItem>
+              </MDBNavbarItem> */}
             </MDBNavbarNav>
             <MDBDropdown tag='li' className='nav-item dropleft' >
               <MDBDropdownToggle nav caret>

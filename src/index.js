@@ -26,7 +26,7 @@ ReactDOM.render(
       <Route exact path="/Login" component={Login} />
       <Route exact path="/Registro" component={Registro} />
       <Route exact path="/ListCurso" component={ListCurso} />
-      <Route exact path="/VerCurso" component={VerCurso} />
+      <Route exact path="/VerCurso/:id" component={VerCurso} />
 
 
 
