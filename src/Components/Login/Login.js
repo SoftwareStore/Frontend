@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { useState } from "react";
 import Botones from '../Utilidades/Botones';
 import Dividisor from '../Utilidades/Dividisor';
 import './Login.css';
+import Axios from "axios";
 
-class Login extends React.Component {
-    //Loginform({Login,error}) {
-    //   const [details,setDetails] = useState({Email:"",Password:""});
-    //    const submitHantler = e =>{
-    //        e.preventDefault();
-    //        Login(details);
-    //    }        
-    //}
-    render() {
+function Login() {
+        const [loginEmail, setLoginEmail] = useState("");
+        const [loginPassword, setLoginPassword] = useState("");
+        const login = () => {
+            Axios({
+                method: "POST",
+                data: {
+                    email: loginEmail,
+                    password: loginPassword,
+                },
+                withCredentials: true,
+                url: "http://localhost:5000/login", // <-- ruta Login del servidor 
+            }).then((res) => console.log(res));
+        };
+
         return (
             <div className="Login">
                 <form >
@@ -19,11 +26,11 @@ class Login extends React.Component {
 
                     <div className="form-group">
                         <label>Email: </label>
-                        <input type="email" className="form-control" placeholder="Email" />
+                        <input type="email" className="form-control" placeholder="Email" onChange={(e) => setLoginEmail(e.target.value)}/>
                     </div>
                     <div className="form-group">
                         <label>Password: </label>
-                        <input type="password" className="form-control" placeholder="Password" />
+                        <input type="password" className="form-control" placeholder="Password" onChange={(e) => setLoginPassword(e.target.value)}/>
                     </div>
 
                     <div className="form-group">
@@ -33,19 +40,19 @@ class Login extends React.Component {
                         </div>
                     </div>
 
-                    <button type="submit" className="btn btn-primary btn-block">Iniciar Sesion</button>
-                    <br/>
+                    <button type="submit" className="btn btn-primary btn-block" onClick={login} href="/">Iniciar Sesion</button>
+                    <br />
                     <p className="forgot-password text-center">
-                    <a href="#">¿Olvidó su password?</a>
+                        <a href="#">¿Olvidó su password?</a>
                     </p>
 
                     <Dividisor>O</Dividisor>
-                    <Botones/>
+                    <Botones />
                 </form>
             </div>
         )
     }
 
-}
+
 
 export default Login;
