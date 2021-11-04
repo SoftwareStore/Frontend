@@ -1,8 +1,20 @@
-import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBRow, MDBCol, MDBBtn, MDBListGroup, MDBListGroupItem, MDBCardLink } from 'mdb-react-ui-kit';
+import {
+    MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBRow,
+    MDBCol, MDBBtn, MDBListGroup, MDBListGroupItem, MDBCardLink,
+    MDBModal,
+    MDBModalDialog,
+    MDBModalContent,
+    MDBModalHeader,
+    MDBModalTitle,
+    MDBModalBody,
+    MDBModalFooter,
+} from 'mdb-react-ui-kit';
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 function VerCurso(props) {
+    const [basicModal, setBasicModal] = useState(false);
+    const toggleShow = () => setBasicModal(!basicModal);
 
     const { id } = useParams();
     console.log(id)
@@ -10,7 +22,7 @@ function VerCurso(props) {
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState();
     useEffect(() => {
-        axios.get("https://classroombackend.herokuapp.com/api/course/"+id).then(response => {
+        axios.get("https://classroombackend.herokuapp.com/api/course/" + id).then(response => {
             setData(response.data);
             setLoading(false);
         });
@@ -25,10 +37,34 @@ function VerCurso(props) {
     // console.log()
     const listHomework = data.course[0].homeworks.map((item) =>
         <MDBListGroupItem> <p>{item.Title}</p>
-            <MDBCardLink href='#'>Card link</MDBCardLink>
+            {/* <MDBCardLink href='#'>Card link</MDBCardLink> */}
+            <MDBBtn onClick={toggleShow}>Ver tarea</MDBBtn>
+            <MDBModal show={basicModal} getOpenState={(e: any) => setBasicModal(e)} tabIndex='-1'>
+                <MDBModalDialog>
+                    <MDBModalContent>
+                        <MDBModalHeader>
+                            <MDBModalTitle>{item.Title}</MDBModalTitle>
+                            <MDBBtn className='btn-close' color='none' onClick={toggleShow}></MDBBtn>
+                        </MDBModalHeader>
+                        <MDBModalBody>...</MDBModalBody>
+
+                        <MDBModalFooter>
+                            <MDBBtn color='secondary' onClick={toggleShow}>
+                                Close
+                            </MDBBtn>
+                            <MDBBtn>Save changes</MDBBtn>
+                        </MDBModalFooter>
+                    </MDBModalContent>
+                </MDBModalDialog>
+            </MDBModal>
         </MDBListGroupItem>
     )
 
+    const listAnno = data.course[0].announcements.map((anno) =>
+        <MDBListGroupItem> <p>{anno.Title}</p>
+            <MDBCardLink href='#'>Leer</MDBCardLink>
+        </MDBListGroupItem>
+    )
 
     const listUsers = data.course[0].participants.map((users) =>
         <MDBListGroupItem> <p>{users.firstName} {users.lastName}</p>
@@ -36,7 +72,7 @@ function VerCurso(props) {
 
     )
 
-console.log(data)
+    console.log(data)
 
     return (
         <div className="">
@@ -69,13 +105,7 @@ console.log(data)
                         <MDBCardBody>
                             <MDBCardTitle>ANNOUNCEMENTS</MDBCardTitle>
                             <MDBListGroup flush>
-                                <MDBListGroupItem> <p>Cras justo odio</p>
-                                    <MDBCardLink href='#'>Card link</MDBCardLink>
-                                </MDBListGroupItem>
-                                <MDBListGroupItem><p>Cras justo odio</p>
-                                    <MDBCardLink href='#'>Card link</MDBCardLink></MDBListGroupItem>
-                                <MDBListGroupItem><p>Cras justo odio</p>
-                                    <MDBCardLink href='#'>Card link</MDBCardLink></MDBListGroupItem>
+                                {listAnno}
                             </MDBListGroup>
 
 
