@@ -12,16 +12,21 @@ import {
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+
+
+
 function VerCurso(props) {
-    const [basicModal, setBasicModal] = useState(false);
-    const toggleShow = () => setBasicModal(!basicModal);
-
+    const [homeworkModal, setHomeworkModal] = useState(false);
+    const [announcementsModal, setAnnouncementModal] = useState(false);
+    //Usa el id del link 
     const { id } = useParams();
-    console.log(id)
-
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState();
+
+    const [homeworkData, setHomework] = useState('');
+    const [announcementData, setAnnouncement] = useState('');
     useEffect(() => {
+        //consulta a la api con el id del link
         axios.get("https://classroombackend.herokuapp.com/api/course/" + id).then(response => {
             setData(response.data);
             setLoading(false);
@@ -34,35 +39,33 @@ function VerCurso(props) {
             </div>
         </div>
     }
-    // console.log()
+    ///////Homework modal
+
+    const toggleShowHomework = (homeworkData) => {
+        setHomework(homeworkData);
+        setHomeworkModal(!homeworkModal)
+    };
+
+    ////////Announcements modal
+    const toggleShowAnnouncements = (announcementData) => {
+        setAnnouncement(announcementData);
+        setAnnouncementModal(!announcementsModal)
+    };
+
+
+
     const listHomework = data.course[0].homeworks.map((item) =>
         <MDBListGroupItem> <p>{item.Title}</p>
             {/* <MDBCardLink href='#'>Card link</MDBCardLink> */}
-            <MDBBtn onClick={toggleShow}>Ver tarea</MDBBtn>
-            <MDBModal show={basicModal} getOpenState={(e: any) => setBasicModal(e)} tabIndex='-1'>
-                <MDBModalDialog>
-                    <MDBModalContent>
-                        <MDBModalHeader>
-                            <MDBModalTitle>{item.Title}</MDBModalTitle>
-                            <MDBBtn className='btn-close' color='none' onClick={toggleShow}></MDBBtn>
-                        </MDBModalHeader>
-                        <MDBModalBody>...</MDBModalBody>
+            <MDBBtn onClick={() => toggleShowHomework(item)} >Ver tarea</MDBBtn>
 
-                        <MDBModalFooter>
-                            <MDBBtn color='secondary' onClick={toggleShow}>
-                                Close
-                            </MDBBtn>
-                            <MDBBtn>Save changes</MDBBtn>
-                        </MDBModalFooter>
-                    </MDBModalContent>
-                </MDBModalDialog>
-            </MDBModal>
         </MDBListGroupItem>
     )
 
     const listAnno = data.course[0].announcements.map((anno) =>
         <MDBListGroupItem> <p>{anno.Title}</p>
-            <MDBCardLink href='#'>Leer</MDBCardLink>
+            <MDBBtn onClick={() => toggleShowAnnouncements(anno)} >Ver tarea</MDBBtn>
+
         </MDBListGroupItem>
     )
 
@@ -72,7 +75,6 @@ function VerCurso(props) {
 
     )
 
-    console.log(data)
 
     return (
         <div className="">
@@ -87,7 +89,7 @@ function VerCurso(props) {
 
             </div>
 
-            <MDBRow className='justify-content-center'>
+            <MDBRow className='justify-content-center m-0'>
                 <MDBCol sm='3'>
                     <MDBCard className='mb-4'>
                         <MDBCardBody>
@@ -99,11 +101,32 @@ function VerCurso(props) {
 
                         </MDBCardBody>
                     </MDBCard>
+                    {/* modal */}
+                    <MDBModal show={homeworkModal} getOpenState={(e) => setHomeworkModal(e)} tabIndex='-1'>
+                        <MDBModalDialog>
+                            <MDBModalContent>
+                                <MDBModalHeader>
+                                    <MDBModalTitle>{homeworkData.Title}</MDBModalTitle>
+                                    <MDBBtn className='btn-close' color='none' onClick={toggleShowHomework}></MDBBtn>
+                                </MDBModalHeader>
+                                <MDBModalBody>{homeworkData.Description}</MDBModalBody>
+
+                                <MDBModalFooter>
+                                    <MDBBtn color='secondary' onClick={toggleShowHomework}>
+                                        Close
+                                    </MDBBtn>
+                                    <MDBBtn>Save changes</MDBBtn>
+                                </MDBModalFooter>
+                            </MDBModalContent>
+                        </MDBModalDialog>
+                    </MDBModal>
+                    {/* modal */}
+
                 </MDBCol>
                 <MDBCol sm='3'>
                     <MDBCard className='mb-4'>
                         <MDBCardBody>
-                            <MDBCardTitle>ANNOUNCEMENTS</MDBCardTitle>
+                            <MDBCardTitle>ANUNCIOS</MDBCardTitle>
                             <MDBListGroup flush>
                                 {listAnno}
                             </MDBListGroup>
@@ -115,7 +138,7 @@ function VerCurso(props) {
                 <MDBCol sm='3'>
                     <MDBCard className='mb-4'>
                         <MDBCardBody>
-                            <MDBCardTitle>LIST</MDBCardTitle>
+                            <MDBCardTitle>LISTA</MDBCardTitle>
                             <MDBListGroup flush>
 
                                 {listUsers}
@@ -124,6 +147,26 @@ function VerCurso(props) {
 
                         </MDBCardBody>
                     </MDBCard>
+                    {/* modal */}
+                    <MDBModal show={announcementsModal} getOpenState={(e) => setAnnouncementModal(e)} tabIndex='-1'>
+                        <MDBModalDialog>
+                            <MDBModalContent>
+                                <MDBModalHeader>
+                                    <MDBModalTitle>{announcementData.Title}</MDBModalTitle>
+                                    <MDBBtn className='btn-close' color='none' onClick={toggleShowAnnouncements}></MDBBtn>
+                                </MDBModalHeader>
+                                <MDBModalBody>{announcementData.Description}</MDBModalBody>
+
+                                <MDBModalFooter>
+                                    <MDBBtn color='secondary' onClick={toggleShowAnnouncements}>
+                                        Close
+                                    </MDBBtn>
+                                    <MDBBtn>Save changes</MDBBtn>
+                                </MDBModalFooter>
+                            </MDBModalContent>
+                        </MDBModalDialog>
+                    </MDBModal>
+                    {/* modal */}
                 </MDBCol>
             </MDBRow>
 
@@ -134,23 +177,6 @@ function VerCurso(props) {
 export default VerCurso
 
 
-
-
-
-
-
-{/* <div className="d-sm-flex flex-row justify-content-center align-items-center p-5 gap-5">
-                <div className="d-flex flex-column w-25 p-4 bg-success align-items-center justify-content-center ">
-                    <h5>HOMEWORK</h5>
-
-                </div>
-                <div className="d-flex flex-column w-25 p-4 bg-success align-items-center justify-content-center ">
-                    <h5>ANNOUNCEMENTS</h5>
-                </div>
-                <div className="d-flex flex-column w-25 p-4 bg-success align-items-center justify-content-center">
-                    <h5>LIST</h5>
-                </div>
-            </div> */}
 
 
 
