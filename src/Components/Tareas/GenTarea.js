@@ -1,10 +1,15 @@
-import React from 'react';
+import React from 'react'
 
-class GenTarea extends React.Component {
-    render(){
-        return(<p>GenTarea</p>)
-    }
+function GenTarea() {
 
+
+
+
+    return (
+      
+            <div className="d-flex p-2">I'm a flexbox container!</div>  
+       
+    )
 }
 
-export default GenTarea;
+export default GenTarea

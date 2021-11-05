@@ -7,7 +7,7 @@ import {
     MDBModalHeader,
     MDBModalTitle,
     MDBModalBody,
-    MDBModalFooter,
+    MDBModalFooter, MDBIcon
 } from 'mdb-react-ui-kit';
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
@@ -93,7 +93,10 @@ function VerCurso(props) {
                 <MDBCol sm='3'>
                     <MDBCard className='mb-4'>
                         <MDBCardBody>
-                            <MDBCardTitle>HOMEWORK</MDBCardTitle>
+                            <MDBCardTitle>
+                                HOMEWORK
+                              
+                            </MDBCardTitle>
 
                             <MDBListGroup flush>
                                 {listHomework}
@@ -125,8 +128,10 @@ function VerCurso(props) {
                 </MDBCol>
                 <MDBCol sm='3'>
                     <MDBCard className='mb-4'>
+                        
                         <MDBCardBody>
-                            <MDBCardTitle>ANUNCIOS</MDBCardTitle>
+                            <MDBCardTitle>ANUNCIOS
+                            </MDBCardTitle>
                             <MDBListGroup flush>
                                 {listAnno}
                             </MDBListGroup>

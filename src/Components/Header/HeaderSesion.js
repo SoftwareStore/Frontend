@@ -41,11 +41,9 @@ export default function App() {
                   Home
                 </MDBNavbarLink>
               </MDBNavbarItem>
+             
               <MDBNavbarItem>
-                <MDBNavbarLink href='#'>About</MDBNavbarLink>
-              </MDBNavbarItem>
-              <MDBNavbarItem>
-                <MDBNavbarLink href='/ListCurso'>Listar cursos</MDBNavbarLink>
+                <MDBNavbarLink href='/ListCurso'>Ver cursos</MDBNavbarLink>
               </MDBNavbarItem>
               {/* <MDBNavbarItem>
                 <MDBNavbarLink href='/VerCurso'>Ver curso</MDBNavbarLink>
@@ -59,6 +57,8 @@ export default function App() {
               <MDBDropdownMenu className="dropdown-default ">
                 <MDBDropdownItem href="#!">Perfil</MDBDropdownItem>
                 <MDBDropdownItem href="#!">Crear curso</MDBDropdownItem>
+                <MDBDropdownItem href="#!">Crear tarea</MDBDropdownItem>
+                <MDBDropdownItem href="#!">Crear anuncio</MDBDropdownItem>
                 <MDBDropdownItem href="#!">Cerrar sesion</MDBDropdownItem>
               </MDBDropdownMenu>
             </MDBDropdown>

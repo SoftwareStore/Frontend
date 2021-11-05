@@ -11,10 +11,6 @@ import {
 } from 'mdb-react-ui-kit';
 function HomeworkModal() {
 
-    const [basicModal, setBasicModal] = useState(false);
-
-    const toggleShow = () => setBasicModal(!basicModal);
-
 
 
     return (
