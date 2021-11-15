@@ -9,13 +9,25 @@ import {
   MDBCollapse,
   MDBBtn,
   MDBNavbarNav,
-  MDBIcon
+  MDBIcon,
+
+  MDBModal
 } from 'mdb-react-ui-kit';
 import { MDBNavItem, MDBDropdownToggle, MDBDropdownItem, MDBDropdown, MDBDropdownMenu } from 'mdbreact';
 import Logo from '../../Assets/Img/logoA.png'
 
+import PerfilModal from '../Modal/PerfilModal'
+import CrearCursoModal from '../Modal/CrearCursoModal';
+
 export default function App() {
   const [showNavNoTogglerThird, setShowNavNoTogglerThird] = useState(false);
+
+  const [gridPerfilModal, setGridPerfilModal] = useState(false);
+  const togglePerfilModal = () => setGridPerfilModal(!gridPerfilModal);
+
+  const [gridCrearCursoModal, setGridCrearCursoModal] = useState(false);
+  const toggleCrearCursoModal = () => setGridCrearCursoModal(!gridCrearCursoModal);
+
 
   return (
     <>
@@ -55,17 +67,26 @@ export default function App() {
               </MDBDropdownToggle>
 
               <MDBDropdownMenu className="dropdown-default ">
-                <MDBDropdownItem href="#!">Perfil</MDBDropdownItem>
-                <MDBDropdownItem href="#!">Crear curso</MDBDropdownItem>
+                <MDBDropdownItem onClick={togglePerfilModal} href="#!">Perfil</MDBDropdownItem>
+                <MDBDropdownItem onClick={toggleCrearCursoModal} href="#!">Crear curso</MDBDropdownItem>
                 <MDBDropdownItem href="#!">Crear tarea</MDBDropdownItem>
                 <MDBDropdownItem href="#!">Crear anuncio</MDBDropdownItem>
                 <MDBDropdownItem href="#!">Cerrar sesion</MDBDropdownItem>
               </MDBDropdownMenu>
             </MDBDropdown>
-
           </MDBCollapse>
         </MDBContainer>
       </MDBNavbar>
+
+      <MDBModal tabIndex='-1' show={gridPerfilModal}>
+        <PerfilModal/>
+      </MDBModal>
+      <MDBModal tabIndex='-1' show={gridCrearCursoModal}>
+        <CrearCursoModal/>
+      </MDBModal>
+      
+      
+
     </>
   );
 }
