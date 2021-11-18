@@ -79,10 +79,10 @@ export default function App() {
       </MDBNavbar>
 
       <MDBModal tabIndex='-1' show={gridPerfilModal}>
-        <PerfilModal/>
+        <PerfilModal togglePerfilModal={togglePerfilModal}/>
       </MDBModal>
       <MDBModal tabIndex='-1' show={gridCrearCursoModal}>
-        <CrearCursoModal/>
+        <CrearCursoModal toggleCrearCursoModal={toggleCrearCursoModal}/>
       </MDBModal>
       
       

@@ -9,10 +9,7 @@ import { MDBBtn,
   MDBModalFooter,
 } from 'mdb-react-ui-kit';
 
-function ProfileModal() {
-  const [gridModal, setGridModal] = useState(false);
-
-  const toggleShow = () => setGridModal(!gridModal);
+function ProfileModal({togglePerfilModal}) {
 
   return (
     <>
@@ -24,7 +21,7 @@ function ProfileModal() {
                 type='button'
                 className='btn-close'
                 color='none'
-                onClick={toggleShow}
+                onClick={togglePerfilModal}
               ></MDBBtn>
             </MDBModalHeader>
             <MDBModalBody>
@@ -53,7 +50,7 @@ function ProfileModal() {
               </div>
             </MDBModalBody>
             <MDBModalFooter>
-              <MDBBtn color='secondary' onClick={toggleShow}>
+              <MDBBtn color='secondary' onClick={togglePerfilModal}>
                 Close
               </MDBBtn>
               <MDBBtn>Save changes</MDBBtn>

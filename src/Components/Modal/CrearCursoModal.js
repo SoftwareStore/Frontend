@@ -10,8 +10,7 @@ import { MDBBtn,
   MDBInput,
 } from 'mdb-react-ui-kit';
 
-function CrearCursoModal() {
-  const [varyingModal, setVaryingModal] = useState(false);
+function CrearCursoModal({toggleCrearCursoModal}) {
   const [varyingCodigo, setVaryingCodigo] = useState('');
   const [varyingNombre, setVaryingNombre] = useState('');
   const [varyingTipoCurso, setVaryingTipoCurso] = useState('');
@@ -35,7 +34,7 @@ function CrearCursoModal() {
           <MDBModalContent>
             <MDBModalHeader>
               <MDBModalTitle>Crear Curso</MDBModalTitle>
-              <MDBBtn className='btn-close' color='none' onClick={() => setVaryingModal(!varyingModal)}></MDBBtn>
+              <MDBBtn className='btn-close' color='none' onClick={toggleCrearCursoModal}></MDBBtn>
             </MDBModalHeader>
             <MDBModalBody>
               <form>
@@ -66,7 +65,7 @@ function CrearCursoModal() {
               </form>
             </MDBModalBody>
             <MDBModalFooter>
-              <MDBBtn color='secondary' onClick={() => setVaryingModal(!varyingModal)}>
+              <MDBBtn color='secondary' onClick={toggleCrearCursoModal}>
                 Close
               </MDBBtn>
               <MDBBtn>Save changes</MDBBtn>
