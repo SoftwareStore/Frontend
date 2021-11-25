@@ -16,8 +16,10 @@ import {
 import { MDBNavItem, MDBDropdownToggle, MDBDropdownItem, MDBDropdown, MDBDropdownMenu } from 'mdbreact';
 import Logo from '../../Assets/Img/logoA.png'
 
-import PerfilModal from '../Modal/PerfilModal'
+import PerfilModal from '../Modal/PerfilModal';
 import CrearCursoModal from '../Modal/CrearCursoModal';
+import CrearAnuncioModal from '../Modal/CrearAnuncioModal';
+import CrearTareaModal from '../Modal/CrearTareaModal';
 
 export default function App() {
   const [showNavNoTogglerThird, setShowNavNoTogglerThird] = useState(false);
@@ -27,7 +29,12 @@ export default function App() {
 
   const [gridCrearCursoModal, setGridCrearCursoModal] = useState(false);
   const toggleCrearCursoModal = () => setGridCrearCursoModal(!gridCrearCursoModal);
+  
+  const [gridCrearAnuncioModal, setGridCrearAnuncioModal] = useState(false);
+  const toggleCrearAnuncioModal = () => setGridCrearAnuncioModal(!gridCrearAnuncioModal);
 
+  const [gridCrearTareaModal, setGridCrearTareaModal] = useState(false);
+  const toggleCrearTareaModal = () => setGridCrearTareaModal(!gridCrearTareaModal);
 
   return (
     <>
@@ -69,9 +76,9 @@ export default function App() {
               <MDBDropdownMenu className="dropdown-default ">
                 <MDBDropdownItem onClick={togglePerfilModal} href="#!">Perfil</MDBDropdownItem>
                 <MDBDropdownItem onClick={toggleCrearCursoModal} href="#!">Crear curso</MDBDropdownItem>
-                <MDBDropdownItem href="#!">Crear tarea</MDBDropdownItem>
-                <MDBDropdownItem href="#!">Crear anuncio</MDBDropdownItem>
-                <MDBDropdownItem href="#!">Cerrar sesion</MDBDropdownItem>
+                <MDBDropdownItem onClick={toggleCrearTareaModal} href="#!">Crear tarea</MDBDropdownItem>
+                <MDBDropdownItem onClick={toggleCrearAnuncioModal} href="#!">Crear anuncio</MDBDropdownItem>
+                <MDBDropdownItem href="http://localhost:5000/auth/logout">Cerrar sesion</MDBDropdownItem>
               </MDBDropdownMenu>
             </MDBDropdown>
           </MDBCollapse>
@@ -83,6 +90,12 @@ export default function App() {
       </MDBModal>
       <MDBModal tabIndex='-1' show={gridCrearCursoModal}>
         <CrearCursoModal toggleCrearCursoModal={toggleCrearCursoModal}/>
+      </MDBModal>
+      <MDBModal tabIndex='-1' show={gridCrearAnuncioModal}>
+        <CrearAnuncioModal toggleCrearAnuncioModal={toggleCrearAnuncioModal}/>
+      </MDBModal>
+      <MDBModal tabIndex='-1' show={gridCrearTareaModal}>
+        <CrearTareaModal toggleCrearTareaModal={toggleCrearTareaModal}/>
       </MDBModal>
       
     </>

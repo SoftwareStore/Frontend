@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { Component } from 'react'
 import styled from 'styled-components';
 
@@ -93,10 +94,10 @@ class Botones extends Component {
             <div style={{ display: 'flex', flexWrap: 'wrap' }} >
                 <Wrapper>
                     <BtnFacebook >
-                        &nbsp;&nbsp;Facebook
+                        <a href="http://localhost:5000/auth/facebook">&nbsp;&nbsp;Facebook</a>
                         </BtnFacebook >
-                    <BtnGoogle>
-                        &nbsp;&nbsp;Google
+                    <BtnGoogle >
+                        <a href="http://localhost:5000/auth/google">&nbsp;&nbsp;Google</a>
                         </BtnGoogle >
                     {/* <BtnTwitter>
                         &nbsp;&nbsp;Twitter
