@@ -23,9 +23,10 @@ function Registro() {
                     role: "Alumno",
                 },
                 withCredentials: true,
-                url: "http://localhost:5000/register", // <-- ruta Registro del servidor 
+                url: "http://localhost:5000/api/user/register", // <-- ruta Registro del servidor 
             }).then((res) => console.log(res));
         };
+        
         return (
             <div className="Registro">
                 <form>
@@ -56,7 +57,7 @@ function Registro() {
                         <input type="password" className="form-control" placeholder="password" onChange={(e) => setRegistroPassword(e.target.value)} />
                     </div>
 
-                    <button type="submit" className="btn btn-primary btn-block" onClick={registro} href="/">Registrar</button>
+                    <button type="submit" className="btn btn-primary btn-block" onClick={registro} >Registrar</button>
                     <br />
                     <p className="forgot-password text-center">
                         ¿Registrado? <a href="/Login">¿iniciar sesión?</a>
