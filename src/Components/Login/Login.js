@@ -9,11 +9,10 @@ function Login() {
     let history = useHistory();
     const [loginEmail, setLoginEmail] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
-    const loginw = () =>{
-        console.log(loginEmail)
-        console.log(loginPassword)
-        Axios({
-            method: "post",
+    const loginEnv = async e =>{
+        e.preventDefault();
+        await Axios({
+            method: "POST",
             url: "http://localhost:5000/api/user/login", // <-- ruta Login del servidor
             data: {
                 email: loginEmail,
@@ -21,12 +20,13 @@ function Login() {
             },
             withCredentials: true,
              
-        }).then((res) => console.log(res)
-        );
+        }).then((res) => {
+            //console.log(res)
+            if(res.status===200)
+                history.push("/");
+        }
+        );        
     };
-    function handleClick() {
-        //history.push("/");
-    }
 
     return (
         <div className="Login">
@@ -49,7 +49,7 @@ function Login() {
                     </div>
                 </div>
 
-                <button type="submit" className="btn btn-primary btn-block" onClick={loginw, handleClick} >Iniciar Sesion</button>
+                <button type="submit" className="btn btn-primary btn-block" onClick={loginEnv} >Iniciar Sesion</button>
                 <br />
                 <p className="forgot-password text-center">
                     <a href="/Registro">¿No Esta registrado?</a>
