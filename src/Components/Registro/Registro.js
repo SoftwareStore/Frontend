@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Botones from '../Utilidades/Botones';
-import Dividisor from '../Utilidades/Dividisor';
+// import Dividisor from '../Utilidades/Dividisor';
 import './Registro.css';
 import Axios from "axios";
 import { useHistory } from "react-router-dom";
@@ -17,7 +17,7 @@ function Registro() {
             e.preventDefault();
             await Axios({
                 method: "POST",
-                url: "http://localhost:5000/api/user/register", // <-- ruta Registro del servidor 
+                url: "https://classroombackend.herokuapp.com/api/user/register", // <-- ruta Registro del servidor 
                 data: {
                     firstName: registroFirstName,
                     lastName: registroLastName,
@@ -42,28 +42,28 @@ function Registro() {
                     <h3>Registrarse</h3>
 
                     <div className="form-group">
-                        <label>Nombre</label>
+                        {/* <label>Nombre</label> */}
                         <input type="text" className="form-control" placeholder="Nombre" onChange={(e) => setRegistroFirstName(e.target.value)} />
                     </div>
 
                     <div className="form-group">
-                        <label>Apellido</label>
+                        {/* <label>Apellido</label> */}
                         <input type="text" className="form-control" placeholder="Apellido" onChange={(e) => setRegistroLastName(e.target.value)} />
                     </div>
 
                     <div className="form-group">
-                        <label>Edad</label>
+                        {/* <label>Edad</label> */}
                         <input type="text" className="form-control" placeholder="Edad" onChange={(e) => setRegistroAge(e.target.value)} />
                     </div>
 
                     <div className="form-group">
-                        <label>Email</label>
+                        {/* <label>Email</label> */}
                         <input type="email" className="form-control" placeholder="Email" onChange={(e) => setRegistroEmail(e.target.value)} />
                     </div>
 
                     <div className="form-group">
-                        <label>Password</label>
-                        <input type="password" className="form-control" placeholder="password" onChange={(e) => setRegistroPassword(e.target.value)} />
+                        {/* <label>Password</label> */}
+                        <input type="password" className="form-control" placeholder="Password" onChange={(e) => setRegistroPassword(e.target.value)} />
                     </div>
 
                     <button type="submit" className="btn btn-primary btn-block" onClick={registroEnv} >Registrar</button>
@@ -72,7 +72,7 @@ function Registro() {
                         ¿Registrado? <a href="/Login">¿iniciar sesión?</a>
                     </p>
 
-                    <Dividisor>O</Dividisor>
+                    {/* <Dividisor>O</Dividisor> */}
                     <Botones />
                 </form>
             </div>

@@ -69,7 +69,7 @@ function VerCurso(props) {
         </MDBListGroupItem>
     )
 
-    const listUsers = data.course[0].participants.map((users) =>
+    const listUsers = data.course[0].exams.map((users) =>
         <MDBListGroupItem> <p>{users.firstName} {users.lastName}</p>
         </MDBListGroupItem>
 
@@ -94,7 +94,7 @@ function VerCurso(props) {
                     <MDBCard className='mb-4'>
                         <MDBCardBody>
                             <MDBCardTitle>
-                                HOMEWORK
+                                TAREAS
 
                             </MDBCardTitle>
 
@@ -117,7 +117,7 @@ function VerCurso(props) {
 
                                 <MDBModalFooter>
                                     <MDBBtn color='secondary' onClick={toggleShowHomework}>
-                                        Close
+                                        Cerrar
                                     </MDBBtn>
                                     {/* <MDBBtn>Save changes</MDBBtn> */}
                                 </MDBModalFooter>
@@ -144,12 +144,12 @@ function VerCurso(props) {
                 <MDBCol sm='3'>
                     <MDBCard className='mb-4'>
                         <MDBCardBody>
-                            
+
                             <MDBCardTitle>
-                                LISTA  
+                                EXAMENES
                             </MDBCardTitle>
-                            <MDBIcon fas icon="user-plus" size='ms'  />
-                          
+                            {/* <MDBIcon fas icon="user-plus" size='ms' /> */}
+
                             <MDBListGroup flush>
 
                                 {listUsers}

@@ -20,8 +20,9 @@ import PerfilModal from '../Modal/PerfilModal';
 import CrearCursoModal from '../Modal/CrearCursoModal';
 import CrearAnuncioModal from '../Modal/CrearAnuncioModal';
 import CrearTareaModal from '../Modal/CrearTareaModal';
-
+import { useParams } from 'react-router-dom';
 export default function App() {
+  const { id } = useParams();
   const [showNavNoTogglerThird, setShowNavNoTogglerThird] = useState(false);
 
   const [gridPerfilModal, setGridPerfilModal] = useState(false);
@@ -67,6 +68,9 @@ export default function App() {
               <MDBNavbarItem>
                 <MDBNavbarLink onClick={toggleCrearCursoModal}>Crear curso</MDBNavbarLink>
               </MDBNavbarItem>
+              <MDBNavbarItem>
+                <MDBNavbarLink href={'/CrearExamen/'+id}>Crear examen</MDBNavbarLink>
+              </MDBNavbarItem>
               {/* <MDBNavbarItem>
                 <MDBNavbarLink href='/VerCurso'>Ver curso</MDBNavbarLink>
               </MDBNavbarItem> */}
@@ -81,7 +85,7 @@ export default function App() {
                 {/* <MDBDropdownItem onClick={toggleCrearCursoModal} href="#!">Crear curso</MDBDropdownItem> */}
                 <MDBDropdownItem onClick={toggleCrearTareaModal} href="#!">Crear tarea</MDBDropdownItem>
                 <MDBDropdownItem onClick={toggleCrearAnuncioModal} href="#!">Crear anuncio</MDBDropdownItem>
-                <MDBDropdownItem href="http://localhost:5000/auth/logout">Cerrar sesion</MDBDropdownItem>
+                <MDBDropdownItem href="https://classroombackend.herokuapp.com/auth/logout">Cerrar sesion</MDBDropdownItem>
               </MDBDropdownMenu>
             </MDBDropdown>
           </MDBCollapse>
