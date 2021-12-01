@@ -9,8 +9,10 @@ import { MDBBtn,
   MDBModalFooter,
   MDBInput,
 } from 'mdb-react-ui-kit';
-
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
 function CrearCursoModal({toggleCrearCursoModal}) {
+  const { id } = useParams();
   const [varyingCodigo, setVaryingCodigo] = useState('');
   const [varyingNombre, setVaryingNombre] = useState('');
   const [varyingTipoCurso, setVaryingTipoCurso] = useState('');
@@ -66,9 +68,19 @@ function CrearCursoModal({toggleCrearCursoModal}) {
             </MDBModalBody>
             <MDBModalFooter>
               <MDBBtn color='secondary' onClick={toggleCrearCursoModal}>
-                Close
+                Cerrar
               </MDBBtn>
-              <MDBBtn>Save changes</MDBBtn>
+              <MDBBtn onClick={()=>{
+                axios.post('https://classroombackend.herokuapp.com/api/course/',{
+                  Code:varyingCodigo,
+                  Name:varyingNombre,
+                  TypeOfCourse:varyingTipoCurso
+                }).then(response=>{
+                  if(response.status==200){
+                    window.location.reload(false);
+                  }
+                })
+              }}>Enviar</MDBBtn>
             </MDBModalFooter>
           </MDBModalContent>
         </MDBModalDialog>

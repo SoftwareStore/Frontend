@@ -95,7 +95,7 @@ function VerCurso(props) {
                         <MDBCardBody>
                             <MDBCardTitle>
                                 HOMEWORK
-                              
+
                             </MDBCardTitle>
 
                             <MDBListGroup flush>
@@ -112,13 +112,14 @@ function VerCurso(props) {
                                     <MDBModalTitle>{homeworkData.Title}</MDBModalTitle>
                                     <MDBBtn className='btn-close' color='none' onClick={toggleShowHomework}></MDBBtn>
                                 </MDBModalHeader>
-                                <MDBModalBody>{homeworkData.Description}</MDBModalBody>
+                                <MDBModalBody>{homeworkData.Description} <hr /> {homeworkData.From} <hr />{homeworkData.To}</MDBModalBody>
+
 
                                 <MDBModalFooter>
                                     <MDBBtn color='secondary' onClick={toggleShowHomework}>
                                         Close
                                     </MDBBtn>
-                                    <MDBBtn>Save changes</MDBBtn>
+                                    {/* <MDBBtn>Save changes</MDBBtn> */}
                                 </MDBModalFooter>
                             </MDBModalContent>
                         </MDBModalDialog>
@@ -128,7 +129,7 @@ function VerCurso(props) {
                 </MDBCol>
                 <MDBCol sm='3'>
                     <MDBCard className='mb-4'>
-                        
+
                         <MDBCardBody>
                             <MDBCardTitle>ANUNCIOS
                             </MDBCardTitle>
@@ -143,7 +144,12 @@ function VerCurso(props) {
                 <MDBCol sm='3'>
                     <MDBCard className='mb-4'>
                         <MDBCardBody>
-                            <MDBCardTitle>LISTA</MDBCardTitle>
+                            
+                            <MDBCardTitle>
+                                LISTA  
+                            </MDBCardTitle>
+                            <MDBIcon fas icon="user-plus" size='ms'  />
+                          
                             <MDBListGroup flush>
 
                                 {listUsers}
@@ -164,9 +170,9 @@ function VerCurso(props) {
 
                                 <MDBModalFooter>
                                     <MDBBtn color='secondary' onClick={toggleShowAnnouncements}>
-                                        Close
+                                        Cerrar
                                     </MDBBtn>
-                                    <MDBBtn>Save changes</MDBBtn>
+                                    {/* <MDBBtn>Save changes</MDBBtn> */}
                                 </MDBModalFooter>
                             </MDBModalContent>
                         </MDBModalDialog>
