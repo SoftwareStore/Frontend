@@ -1,0 +1,28 @@
+.camposGroup{
+    padding: 30px;
+    width: 100%;
+    /* background-color: aqua; */
+}
+
+
+
+.camposGroup .claves{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.camposGroup .checks{
+    display: flex;
+    flex-direction: row;
+    /* background-color: red; */
+    flex-wrap: wrap;
+    padding: auto;
+   
+    gap: 50px;
+}
+
+.camposGroup .field{
+    background-color: saddlebrown;
+    width: 75%;
+}

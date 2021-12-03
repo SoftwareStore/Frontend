@@ -13,160 +13,156 @@ import {
     MDBInputGroup,
     MDBInputGroupText,
     MDBInputGroupElement,
-    MDBListGroup,
+    MDBListGroup, MDBCardHeader,
     MDBListGroupItem,
     MDBCheckbox,
     MDBInput,
     MDBContainer,
     MDBRadio,
 } from "mdb-react-ui-kit";
-
+import Pregunta from "./Pregunta";
+import './Exam.css'
+import { set } from "date-fns";
 function Exam() {
 
 
-    const quiz = {
-        quizTitle: "React Quiz Component Demo",
-        quizSynopsis:
-            "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim",
-        questions: [
-            {
-                question:
-                    "How can you access the state of a component from inside of a member function?",
-                questionType: "text",
-                questionPic: "https://dummyimage.com/600x400/000/fff&text=X", // if you need to display Picture in Question
-                answerSelectionType: "single",
-                answers: [
-                    "this.getState()",
-                    "this.prototype.stateValue",
-                    "this.state",
-                    "this.values",
-                ],
-                correctAnswer: "3",
-                messageForCorrectAnswer: "Correct answer. Good job.",
-                messageForIncorrectAnswer: "Incorrect answer. Please try again.",
-                explanation:
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                point: "20",
-            },
-            {
-                question: "ReactJS is developed by _____?",
-                questionType: "text",
-                answerSelectionType: "single",
-                answers: ["Google Engineers", "Facebook Engineers"],
-                correctAnswer: "2",
-                messageForCorrectAnswer: "Correct answer. Good job.",
-                messageForIncorrectAnswer: "Incorrect answer. Please try again.",
-                explanation:
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                point: "20",
-            },
-            {
-                question: "ReactJS is an MVC based framework?",
-                questionType: "text",
-                answerSelectionType: "single",
-                answers: ["True", "False"],
-                correctAnswer: "2",
-                messageForCorrectAnswer: "Correct answer. Good job.",
-                messageForIncorrectAnswer: "Incorrect answer. Please try again.",
-                explanation:
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                point: "10",
-            },
-            {
-                question: "Which of the following concepts is/are key to ReactJS?",
-                questionType: "text",
-                answerSelectionType: "single",
-                answers: [
-                    "Component-oriented design",
-                    "Event delegation model",
-                    "Both of the above",
-                ],
-                correctAnswer: "3",
-                messageForCorrectAnswer: "Correct answer. Good job.",
-                messageForIncorrectAnswer: "Incorrect answer. Please try again.",
-                explanation:
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                point: "30",
-            },
-            {
-                question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
-                questionType: "photo",
-                answerSelectionType: "single",
-                answers: [
-                    "https://dummyimage.com/600x400/000/fff&text=A",
-                    "https://dummyimage.com/600x400/000/fff&text=B",
-                    "https://dummyimage.com/600x400/000/fff&text=C",
-                    "https://dummyimage.com/600x400/000/fff&text=D",
-                ],
-                correctAnswer: "1",
-                messageForCorrectAnswer: "Correct answer. Good job.",
-                messageForIncorrectAnswer: "Incorrect answer. Please try again.",
-                explanation:
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                point: "20",
-            },
-            {
-                question: "What are the advantages of React JS?",
-                questionType: "text",
-                answerSelectionType: "multiple",
-                answers: [
-                    "React can be used on client and as well as server side too",
-                    "Using React increases readability and makes maintainability easier. Component, Data patterns improves readability and thus makes it easier for manitaining larger apps",
-                    "React components have lifecycle events that fall into State/Property Updates",
-                    "React can be used with any other framework (Backbone.js, Angular.js) as it is only a view layer",
-                ],
-                correctAnswer: [1, 2, 4],
-                messageForCorrectAnswer: "Correct answer. Good job.",
-                messageForIncorrectAnswer: "Incorrect answer. Please try again.",
-                explanation:
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                point: "20",
-            },
-        ],
-    };
+    // const quiz = {
+    //     quizTitle: "React Quiz Component Demo",
+    //     quizSynopsis:
+    //         "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim",
+    //     questions: [
+    //         {
+    //             question:
+    //                 "How can you access the state of a component from inside of a member function?",
+    //             questionType: "text",
+    //             questionPic: "https://dummyimage.com/600x400/000/fff&text=X", // if you need to display Picture in Question
+    //             answerSelectionType: "single",
+    //             answers1: "asd",
+    //             answers2: "asd",
+    //             answers3: "asd",
+    //             answers: [
+    //                 "this.getState()",
+    //                 "this.prototype.stateValue",
+    //                 "this.state",
+    //                 "this.values",
+    //             ],
+    //             correctAnswer: "3",
+    //             messageForCorrectAnswer: "Correct answer. Good job.",
+    //             messageForIncorrectAnswer: "Incorrect answer. Please try again.",
+    //             explanation:
+    //                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    //             point: "20",
+    //         },
+    //         {
+    //             question: "ReactJS is developed by _____?",
+    //             questionType: "text",
+    //             answerSelectionType: "single",
+    //             answers: ["Google Engineers", "Facebook Engineers"],
+    //             correctAnswer: "2",
+    //             messageForCorrectAnswer: "Correct answer. Good job.",
+    //             messageForIncorrectAnswer: "Incorrect answer. Please try again.",
+    //             explanation:
+    //                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    //             point: "20",
+    //         },
+    //         {
+    //             question: "ReactJS is an MVC based framework?",
+    //             questionType: "text",
+    //             answerSelectionType: "single",
+    //             answers: ["True", "False"],
+    //             correctAnswer: "2",
+    //             messageForCorrectAnswer: "Correct answer. Good job.",
+    //             messageForIncorrectAnswer: "Incorrect answer. Please try again.",
+    //             explanation:
+    //                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    //             point: "10",
+    //         },
+    //         {
+    //             question: "Which of the following concepts is/are key to ReactJS?",
+    //             questionType: "text",
+    //             answerSelectionType: "single",
+    //             answers: [
+    //                 "Component-oriented design",
+    //                 "Event delegation model",
+    //                 "Both of the above",
+    //             ],
+    //             correctAnswer: "3",
+    //             messageForCorrectAnswer: "Correct answer. Good job.",
+    //             messageForIncorrectAnswer: "Incorrect answer. Please try again.",
+    //             explanation:
+    //                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    //             point: "30",
+    //         },
+    //         {
+    //             question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+    //             questionType: "photo",
+    //             answerSelectionType: "single",
+    //             answers: [
+    //                 "https://dummyimage.com/600x400/000/fff&text=A",
+    //                 "https://dummyimage.com/600x400/000/fff&text=B",
+    //                 "https://dummyimage.com/600x400/000/fff&text=C",
+    //                 "https://dummyimage.com/600x400/000/fff&text=D",
+    //             ],
+    //             correctAnswer: "1",
+    //             messageForCorrectAnswer: "Correct answer. Good job.",
+    //             messageForIncorrectAnswer: "Incorrect answer. Please try again.",
+    //             explanation:
+    //                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    //             point: "20",
+    //         },
+    //         {
+    //             question: "What are the advantages of React JS?",
+    //             questionType: "text",
+    //             answerSelectionType: "multiple",
+    //             answers: [
+    //                 "React can be used on client and as well as server side too",
+    //                 "Using React increases readability and makes maintainability easier. Component, Data patterns improves readability and thus makes it easier for manitaining larger apps",
+    //                 "React components have lifecycle events that fall into State/Property Updates",
+    //                 "React can be used with any other framework (Backbone.js, Angular.js) as it is only a view layer",
+    //             ],
+    //             correctAnswer: [1, 2, 4],
+    //             messageForCorrectAnswer: "Correct answer. Good job.",
+    //             messageForIncorrectAnswer: "Incorrect answer. Please try again.",
+    //             explanation:
+    //                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    //             point: "20",
+    //         },
+    //     ],
+    // };
+    const [arrayClaves, setarrayClaves] = useState([])
+    const [questionsArray, setquestionsArray] = useState({
 
-    const [questionsArray, setquestionsArray] = useState([]);
-    const addEntryClick = (e) => {
-        setquestionsArray(arr => [...questionsArray, e]);
-        // console.log(e)
-    };
-    const initialFormData = Object.freeze({
         question: "",
         answerSelectionType: "single",
-        answers: questionsArray,
+        answers: [],
         correctAnswer: "",
         messageForCorrectAnswer: "Correct answer. Good job.",
         messageForIncorrectAnswer: "Incorrect answer. Please try again.",
         explanation: "",
         point: ""
+
     });
 
+
+
+    //informacion del curso
+    const [data, setData] = useState();
     const { id } = useParams();
     const [isLoading, setLoading] = useState(true);
-    const [data, setData] = useState();
-    const [examen, setexamen] = useState(initialFormData);
 
-    const [question, setquestion] = useState()
-    const [answers, setanswers] = useState()
-    const [correctAnswer, setcorrectAnswer] = useState()
-    const [points, setpoints] = useState()
-    console.log(question)
+
+    const [examen, setexamen] = useState([]);
 
 
 
 
-    // const addQuestion = () => {
-    //     setexamen(prevItems => [...prevItems, {
-    //         question: "",
-    //         answerSelectionType: "",
-    //         answers: ["", "", "", ""],
-    //         correctAnswer: "",
-    //         messageForCorrectAnswer: "",
-    //         messageForIncorrectAnswer: "",
-    //         explanation: "",
-    //         point: ""
-    //     }])
-    // }
+
+    const onchange = (data) => {
+        setexamen(data)
+        console.log("Form>", data);
+    }
+
+
     const handleChange = (e) => {
         setexamen({
             ...examen,
@@ -174,14 +170,11 @@ function Exam() {
         })
     }
 
-    // const handlePush=(e)=>{
-    //     setexamen({...examen,[e.target.name]:})
-    // }
 
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log(examen);
-        console.log(questionsArray)
+        // console.log(questionsArray)
         // ... submit to API or something
     };
 
@@ -215,67 +208,83 @@ function Exam() {
                 </div>
             </div>
 
-            <MDBInputGroup className="mb-3">
-                <MDBInput label="Titulo" id="typeText" type="text" onChange={handleChange} />
-            </MDBInputGroup>
 
-            <MDBInputGroup className="mb-3">
-                <MDBInput
-                    label="Descripcion"
-                    id="textAreaExample"
-                    textarea
-                    rows={4}
-                    type="text"
-                />
-            </MDBInputGroup>
-            <h1>Preguntas</h1>
-            <h2>Enunciado</h2>
+            <div className="mainContainer">
+                <div className="left">
 
-            {/* question: "",
-        answerSelectionType: "single",
-        answers: ["", "", "", ""],
-        correctAnswer: "",
-        messageForCorrectAnswer: "Correct answer. Good job.",
-        messageForIncorrectAnswer: "Incorrect answer. Please try again.",
-        explanation: "",
-        point: "" */}
 
-            <MDBInputGroup className="mb-3">
-                <MDBInput name="question" label="Pregunta" id="typeText" type="text" onChange={handleChange} />
-            </MDBInputGroup>
+                    <div className="descrip">
+                        <MDBInput label="Titulo" id="typeText" type="text" size='lg' onChange={handleChange} />
 
-            <h2>Respuestas</h2>
-            <MDBInputGroup className="mb-3">
-                <MDBInput name='answers' label="Respuesta 1" id="typeText" type="text" onChange={(e) => {
-                    questionsArray[0] = e.target.value;
-                }} />
-            </MDBInputGroup>
-            <MDBInputGroup className="mb-3">
-                <MDBInput name='answers' label="Respuesta 2" id="typeText" type="text" onChange={(e) => {
-                    questionsArray[1] = e.target.value;
-                }} />
-            </MDBInputGroup>
-            <MDBInputGroup className="mb-3">
-                <MDBInput name='answers' label="Respuesta 3" id="typeText" type="text" onChange={(e) => {
-                    questionsArray[2] = e.target.value;
-                }} />
-            </MDBInputGroup>
-            <MDBInputGroup className="mb-3">
-                <MDBInput name='answers' label="Respuesta 4" id="typeText" type="text" onChange={(e) => {
-                    questionsArray[3] = e.target.value;
-                }} />
-            </MDBInputGroup>
-            <h2>Respuesta correcta</h2>
-            <MDBRadio name="flexRadioDefault" id="flexRadioDefault1" label="1" />
-            <MDBRadio name="flexRadioDefault" id="flexRadioDefault1" label="2" />
-            <MDBRadio name="flexRadioDefault" id="flexRadioDefault1" label="3" />
-            <MDBRadio name="flexRadioDefault" id="flexRadioDefault2" label="4" />
-            <h2>Puntos</h2>
-            <MDBInputGroup className="mb-3">
-                <MDBInput label="Puntos pregunta" id="typeNumber" type="number" />
-            </MDBInputGroup>
-            <MDBBtn onClick={handleSubmit} />
-            <Quiz quiz={quiz} />
+                        <MDBInput
+                            label="Descripcion"
+                            id="textAreaExample"
+                            textarea
+                            rows={4}
+                            type="text"
+                            size='lg'
+                        />
+                    </div>
+                    <h1>Preguntas</h1>
+
+
+                    <Pregunta data={questionsArray}
+                        // arrayClaves={arrayClaves}
+
+                        setInfo={setquestionsArray}
+                    // setArr={setarrayClaves} 
+                    />
+
+
+
+                    <MDBBtn onClick={() => {
+                        // console.log(arrayClaves)
+                        //  examen.push(questionsArray)
+                        questionsArray.answers.push(questionsArray.answers1, questionsArray.answers2, questionsArray.answers3, questionsArray.answers4)
+                        setexamen(examen => [...examen, questionsArray])
+
+                        // console.log(examen)
+                    }}>
+                        Agregar pregunta
+
+                    </MDBBtn>
+
+                    <MDBBtn onClick={handleSubmit}>
+                        Generar examen
+                    </MDBBtn>
+                    {/* <Quiz quiz={quiz} /> */}
+
+
+
+                </div>
+
+                <div className="right">
+
+                    {examen.map(pregunta => (
+                        // console.log('aea',pregunta)
+                        <MDBCard style={{ width: '16rem' }}>
+                            <MDBCardHeader>{pregunta.question}</MDBCardHeader>
+                            <MDBListGroup flush>
+                                <MDBListGroupItem>{pregunta.answers[0]}</MDBListGroupItem>
+                                <MDBListGroupItem>{pregunta.answers[1]}</MDBListGroupItem>
+                                <MDBListGroupItem>{pregunta.answers[2]}</MDBListGroupItem>
+                                <MDBListGroupItem>{pregunta.answers[3]}</MDBListGroupItem>
+                            </MDBListGroup>
+                        </MDBCard>
+                    ))}
+
+
+
+
+                </div>
+
+            </div>
+
+
+
+
+
+
         </div>
     );
 }

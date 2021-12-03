@@ -1,0 +1,28 @@
+.mainContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.mainContainer .left {
+    /* background-color: red; */
+    width: 30%;
+}
+
+.mainContainer .left .descrip{
+    padding: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    
+}
+.mainContainer .right {
+
+    /* background-color: royalblue; */
+    height: 100%;
+    display: flex;
+    width: 70%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 50px;
+    padding: 30px;
+}
