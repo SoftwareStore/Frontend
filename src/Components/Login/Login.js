@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Botones from '../Utilidades/Botones';
-import Dividisor from '../Utilidades/Dividisor';
 import './Login.css';
 import Axios from "axios";
 import { useHistory } from "react-router-dom";
@@ -55,7 +54,7 @@ function Login() {
                     <a href="/Registro">¿No Esta registrado?</a>
                 </p>
 
-                <Dividisor>O</Dividisor>
+                
                 <Botones />
             </form>
         </div>

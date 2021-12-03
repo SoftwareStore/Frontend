@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MDBBtn,
   MDBModal,
   MDBModalDialog,
@@ -9,7 +9,19 @@ import { MDBBtn,
   MDBModalFooter,
 } from 'mdb-react-ui-kit';
 
+import axios from 'axios';
+
 function ProfileModal({togglePerfilModal}) {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    //consulta a la api con el id del link
+    axios.get("http://localhost:5000/api/user/login",{withCredentials: true}).then(response => {
+        setData(response.data[0]);
+        //console.log(response.data[0].age)
+    });
+}, []);
+
+console.log(data)
 
   return (
     <>
@@ -28,9 +40,9 @@ function ProfileModal({togglePerfilModal}) {
               <div className='container-fluid bd-example-row'>
                 <div className='row'>
                   <div className='col-md-6 col-example'>
-                      <h6>Nombre: name1</h6>
-                      <h6>Apellido: Apellido 1</h6>
-                      <h6>Email: email@goil.vom</h6>
+                    <h6>Nombre: {data.firstName}</h6>
+                    <h6>Apellido: {data.lastName}</h6>
+                      <h6>Email: {data.email}</h6>
                       <h6>Cursos:</h6>
                       <div className='container-fluid bd-example-row'>
                         <div className='row'>

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Botones from '../Utilidades/Botones';
-// import Dividisor from '../Utilidades/Dividisor';
 import './Registro.css';
 import Axios from "axios";
 import { useHistory } from "react-router-dom";
@@ -72,7 +71,7 @@ function Registro() {
                         ¿Registrado? <a href="/Login">¿iniciar sesión?</a>
                     </p>
 
-                    {/* <Dividisor>O</Dividisor> */}
+                    
                     <Botones />
                 </form>
             </div>
