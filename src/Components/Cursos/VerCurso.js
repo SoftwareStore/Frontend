@@ -7,7 +7,7 @@ import {
     MDBModalHeader,
     MDBModalTitle,
     MDBModalBody,
-    MDBModalFooter, MDBIcon
+    MDBModalFooter,
 } from 'mdb-react-ui-kit';
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
@@ -19,7 +19,7 @@ function VerCurso(props) {
     const [homeworkModal, setHomeworkModal] = useState(false);
     const [announcementsModal, setAnnouncementModal] = useState(false);
     //Usa el id del link 
-    const { id } = useParams();
+    const { id} = useParams();
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState();
 
@@ -70,7 +70,9 @@ function VerCurso(props) {
     )
 
     const listUsers = data.course[0].exams.map((users) =>
-        <MDBListGroupItem> <p>{users.firstName} {users.lastName}</p>
+        <MDBListGroupItem> <p>{users.quizTitle}</p>
+            <MDBBtn href={'/TomarExamen/'+id+'/'+users._id}>Tomar examen</MDBBtn>
+            {/* users._id */}
         </MDBListGroupItem>
 
     )
