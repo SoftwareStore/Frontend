@@ -1,6 +1,7 @@
 import axios from 'axios';
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import styled from 'styled-components';
+import { useHistory } from "react-router-dom";
 
 const Wrapper = styled.div`
     @media only screen and (max-width : 399px) {
@@ -88,15 +89,45 @@ const BtnLinkedin = styled.button`
         opacity: 0.6;
     }
 `;
+
+    let history = useHistory();
+    const loginGoogle = async e =>{
+        e.preventDefault();
+        await Axios({
+            method: "GET",
+            url: "https://classroombackend.herokuapp.com/auth/google/redirect", // <-- ruta Login del servidor
+            withCredentials: true,
+        }).then((res) => {
+            //console.log(res)
+            if(res.status===200)
+                history.push("/ListCurso");
+        }
+        );        
+    };
+    const loginFacebook = async e =>{
+        e.preventDefault();
+        await Axios({
+            method: "GET",
+            url: "https://classroombackend.herokuapp.com/auth/facebook/redirect", // <-- ruta Login del servidor
+            withCredentials: true,
+        }).then((res) => {
+            //console.log(res)
+            if(res.status===200)
+                history.push("/ListCurso");
+        }
+        );        
+    };
+    
 class Botones extends Component {
+    
     render() {
         return (
             <div style={{ display: 'flex', flexWrap: 'wrap' }} >
                 <Wrapper>
-                    <BtnFacebook >
+                    <BtnFacebook onClick={loginFacebook}>
                         <a href="http://localhost:5000/auth/facebook">&nbsp;&nbsp;Facebook</a>
                         </BtnFacebook >
-                    <BtnGoogle >
+                    <BtnGoogle onClick={loginGoogle}>
                         <a href="http://localhost:5000/auth/google">&nbsp;&nbsp;Google</a>
                         </BtnGoogle >
                     {/* <BtnTwitter>
