@@ -17,9 +17,11 @@ function ProfileModal({togglePerfilModal}) {
     //consulta a la api con el id del link
     axios.get("http://localhost:5000/api/user/login",{withCredentials: true}).then(response => {
         setData(response.data[0]);
+        //console.log(response.data[0].age)
     });
 }, []);
 
+console.log(data)
 
   return (
     <>

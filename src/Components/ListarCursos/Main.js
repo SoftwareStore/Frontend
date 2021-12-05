@@ -9,14 +9,12 @@ function Main(props) {
 
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState();
-
   useEffect(() => {
-    axios.get("http://localhost:5000/api/user/courses",{withCredentials: true}).then(response => {
+    axios.get("https://classroombackend.herokuapp.com/api/course/index").then(response => {
       setData(response.data);
       setLoading(false);
-    }).catch(err => {console.log(err)});
+    });
   }, []);
-
   if (isLoading) {
     return <div class="d-flex justify-content-center">
       <div class="spinner-border" role="status">
@@ -24,7 +22,7 @@ function Main(props) {
       </div>
     </div>
   }
-//console.log(data)
+console.log(data)
 
 
   const listCards = data.map((item) =>
