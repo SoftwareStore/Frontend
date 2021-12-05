@@ -1,4 +1,4 @@
-import axios from 'axios';
+import Axios from 'axios';
 import React, { Component, useState } from 'react'
 import styled from 'styled-components';
 import { useHistory } from "react-router-dom";
@@ -89,46 +89,38 @@ const BtnLinkedin = styled.button`
         opacity: 0.6;
     }
 `;
-
+    
+function Botones() {
     let history = useHistory();
+
     const loginGoogle = async e =>{
         e.preventDefault();
         await Axios({
-            method: "GET",
-            url: "https://classroombackend.herokuapp.com/auth/google/redirect", // <-- ruta Login del servidor
+            method: "POST",
+            url: "http://localhost:5000/api/user/login", // <-- ruta Login del servidor
             withCredentials: true,
+             
         }).then((res) => {
             //console.log(res)
             if(res.status===200)
-                history.push("/ListCurso");
-        }
-        );        
+                history.push("/");
+        }).catch((err) =>{
+            window.location.replace("https://classroombackend.herokuapp.com/auth/google/redirect");
+        });     
     };
-    const loginFacebook = async e =>{
-        e.preventDefault();
-        await Axios({
-            method: "GET",
-            url: "https://classroombackend.herokuapp.com/auth/facebook/redirect", // <-- ruta Login del servidor
-            withCredentials: true,
-        }).then((res) => {
-            //console.log(res)
-            if(res.status===200)
-                history.push("/ListCurso");
-        }
-        );        
-    };
-    
-class Botones extends Component {
-    
-    render() {
+
+    function loginFacebook()
+	{
+		window.location.replace("https://classroombackend.herokuapp.com/auth/facebook/redirect");
+	}
         return (
             <div style={{ display: 'flex', flexWrap: 'wrap' }} >
                 <Wrapper>
                     <BtnFacebook onClick={loginFacebook}>
-                        <a href="http://localhost:5000/auth/facebook">&nbsp;&nbsp;Facebook</a>
+                        <a>&nbsp;&nbsp;Facebook</a>
                         </BtnFacebook >
                     <BtnGoogle onClick={loginGoogle}>
-                        <a href="http://localhost:5000/auth/google">&nbsp;&nbsp;Google</a>
+                        <a>&nbsp;&nbsp;Google</a>
                         </BtnGoogle >
                     {/* <BtnTwitter>
                         &nbsp;&nbsp;Twitter
@@ -142,7 +134,6 @@ class Botones extends Component {
                 </Wrapper>
             </div>
         )
-    }
 }
 
 export default Botones;
