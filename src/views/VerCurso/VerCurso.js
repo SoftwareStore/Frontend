@@ -1,5 +1,5 @@
 import React from 'react'
-import HeaderSesion from '../../Components/Header/HeaderSesion'
+import HeaderSesion from '../../Components/Header/HeaderProfesor2'
 import Footer from '../../Components/Footer/Footer1'
 import VerCursoTemplate from '../../Components/Cursos/VerCurso'
 function VerCurso() {

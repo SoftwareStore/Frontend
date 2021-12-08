@@ -50,9 +50,9 @@ export default function App() {
       setData(response.data[0].role);
     });
   }, []);
-
-  return (
-    <>
+  
+    return(
+      <>
       <MDBNavbar expand='lg' light bgColor='light'>
         <MDBContainer fluid>
           <MDBNavbarToggler
@@ -77,20 +77,17 @@ export default function App() {
               </MDBNavbarItem>
              
               <MDBNavbarItem>
-                <MDBNavbarLink href='#'>About</MDBNavbarLink>
-              </MDBNavbarItem>
-              <MDBNavbarItem>
                 <MDBNavbarLink href='/ListCurso'>Ver cursos</MDBNavbarLink>
               </MDBNavbarItem>
-              {/* <MDBNavbarItem>
+              <MDBNavbarItem>
                 <MDBNavbarLink onClick={toggleCrearCursoModal}>Crear curso</MDBNavbarLink>
-              </MDBNavbarItem> */}
+              </MDBNavbarItem>
               <MDBNavbarItem>
                 <MDBNavbarLink onClick={toggleUnirCursoModal}>Unirse al curso</MDBNavbarLink>
               </MDBNavbarItem>
-              {/* <MDBNavbarItem>
+              <MDBNavbarItem>
                 <MDBNavbarLink href={'/CrearExamen/'+id}>Crear examen</MDBNavbarLink>
-              </MDBNavbarItem> */}
+              </MDBNavbarItem>
               {/* <MDBNavbarItem>
                 <MDBNavbarLink href='/VerCurso'>Ver curso</MDBNavbarLink>
               </MDBNavbarItem> */}
@@ -103,8 +100,8 @@ export default function App() {
               <MDBDropdownMenu className="dropdown-default ">
                 <MDBDropdownItem onClick={togglePerfilModal} href="#!">Perfil</MDBDropdownItem>
                 {/* <MDBDropdownItem onClick={toggleCrearCursoModal} href="#!">Crear curso</MDBDropdownItem> */}
-                {/* <MDBDropdownItem onClick={toggleCrearTareaModal} href="#!">Crear tarea</MDBDropdownItem> */}
-                {/* <MDBDropdownItem onClick={toggleCrearAnuncioModal} href="#!">Crear anuncio</MDBDropdownItem> */}
+                <MDBDropdownItem onClick={toggleCrearTareaModal} href="#!">Crear tarea</MDBDropdownItem>
+                <MDBDropdownItem onClick={toggleCrearAnuncioModal} href="#!">Crear anuncio</MDBDropdownItem>
                 <MDBDropdownItem href="https://classroombackend.herokuapp.com/auth/logout">Cerrar sesion</MDBDropdownItem>
               </MDBDropdownMenu>
             </MDBDropdown>
@@ -128,6 +125,6 @@ export default function App() {
         <CrearTareaModal toggleCrearTareaModal={toggleCrearTareaModal}/>
       </MDBModal>
       
-    </>);
-  
+    </>
+    );
 }

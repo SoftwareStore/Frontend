@@ -77,6 +77,9 @@ export default function App() {
               </MDBNavbarItem>
              
               <MDBNavbarItem>
+                <MDBNavbarLink href='#'>About</MDBNavbarLink>
+              </MDBNavbarItem>
+              <MDBNavbarItem>
                 <MDBNavbarLink href='/ListCurso'>Ver cursos</MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
@@ -85,9 +88,9 @@ export default function App() {
               <MDBNavbarItem>
                 <MDBNavbarLink onClick={toggleUnirCursoModal}>Unirse al curso</MDBNavbarLink>
               </MDBNavbarItem>
-              <MDBNavbarItem>
+              {/* <MDBNavbarItem>
                 <MDBNavbarLink href={'/CrearExamen/'+id}>Crear examen</MDBNavbarLink>
-              </MDBNavbarItem>
+              </MDBNavbarItem> */}
               {/* <MDBNavbarItem>
                 <MDBNavbarLink href='/VerCurso'>Ver curso</MDBNavbarLink>
               </MDBNavbarItem> */}
