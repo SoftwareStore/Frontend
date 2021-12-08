@@ -22,7 +22,7 @@ function Login() {
         }).then((res) => {
             //console.log(res)
             if(res.status===200)
-                history.push("/");
+                history.push("/ListCurso");
         }
         );        
     };
