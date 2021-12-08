@@ -10,7 +10,7 @@ function Main(props) {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState();
   useEffect(() => {
-    axios.get("https://classroombackend.herokuapp.com/api/course/index").then(response => {
+    axios.get("http://localhost:5000/api/course/index").then(response => {
       setData(response.data);
       setLoading(false);
     });
@@ -22,7 +22,6 @@ function Main(props) {
       </div>
     </div>
   }
-console.log(data)
 
 
   const listCards = data.map((item) =>
