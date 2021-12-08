@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import HeaderAlumno from './HeaderAlumno';
-import HeaderProfesor from './HeaderProfesor';
+import HeaderProfesor from './HeaderProfesor2';
 import Header from './Header';
 export default function App() {
 
@@ -13,7 +13,7 @@ export default function App() {
       setData(response.data[0].role);
     }).catch(err=>console.log(err));
   }, []);
-  
+console.log(data)
   if(data === "Alumno"){
     return(
       <HeaderAlumno></HeaderAlumno>
