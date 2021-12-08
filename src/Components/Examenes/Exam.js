@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams,useHistory } from "react-router-dom";
 import Quiz from "react-quiz-component";
 import {
     MDBCard,
@@ -9,17 +9,18 @@ import {
     MDBListGroupItem,
     MDBInput,
 } from "mdb-react-ui-kit";
+import Swal from 'sweetalert2'
 import Pregunta from "./Pregunta";
 import './Exam.css'
 
 function Exam() {
 
-
+    const history = useHistory()
 
     const [questionsArray, setquestionsArray] = useState({
 
         question: "",
-        questionType:"text",
+        questionType: "text",
         answerSelectionType: "single",
         answers: [],
         correctAnswer: "",
@@ -56,9 +57,28 @@ function Exam() {
     const handleSubmit = (e) => {
         e.preventDefault()
         examen.questions = preguntasFinal;
-        console.log(examen)
-
-        axios.post("https://classroombackend.herokuapp.com/api/exam/newExam/"+ id, examen).then(response => { console.log(response) })
+        // console.log(examen)
+        Swal.fire({
+            title: '¿Estas seguro?',
+            text: "No podras revertir esta accion",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si , envialo!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.post("https://classroombackend.herokuapp.com/api/exam/newExam/" + id, examen).then(response => { console.log(response) })
+                Swal.fire(
+                    'Enviado!',
+                    'El examen fue enviado.',
+                    'success'
+                )
+               history.push("/VerCurso/"+id)
+              
+            }
+        })
+      
         // ... submit to API or something
     };
 
@@ -128,6 +148,7 @@ function Exam() {
                         questionsArray.answers[2] = questionsArray.answers3;
                         questionsArray.answers[3] = questionsArray.answers4;
                         setpreguntasFinal(preguntasFinal => [...preguntasFinal, questionsArray])
+
                     }}>
                         Agregar pregunta
                     </MDBBtn>

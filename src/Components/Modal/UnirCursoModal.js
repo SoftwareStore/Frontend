@@ -1,6 +1,7 @@
 //import React, { useState } from 'react';
 import React, { useState, useEffect } from 'react';
-import { MDBBtn,
+import {
+  MDBBtn,
   MDBModal,
   MDBModalDialog,
   MDBModalContent,
@@ -12,27 +13,27 @@ import { MDBBtn,
 } from 'mdb-react-ui-kit';
 import axios from 'axios';
 
-function UnirCursoModal({toggleUnirCursoModal}) {
+function UnirCursoModal({ toggleUnirCursoModal }) {
   const [varyingCodigo, setVaryingCodigo] = useState('');
   const [id, setid] = useState("");
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/user/login",{withCredentials: true}).then(response => {
+    axios.get("http://localhost:5000/api/user/login", { withCredentials: true }).then(response => {
       setid(response.data[0]._id);
-    }).catch(err => {console.log(err)});
+    }).catch(err => { console.log(err) });
   }, []);
 
-  const envCodigo = async e =>{
+  const envCodigo = async e => {
     await axios({
-        method: "POST",
-        url: "http://localhost:5000/api/user/courses", // <-- ruta Login del servidor
-        data: {
-            Code:varyingCodigo,
-            participants:id
-        },
-        withCredentials: true,
-    }).catch(err => {console.log(err)});
-    };
+      method: "POST",
+      url: "http://localhost:5000/api/user/courses", // <-- ruta Login del servidor
+      data: {
+        Code: varyingCodigo,
+        participants: id
+      },
+      withCredentials: true,
+    }).then(window.location.reload()).catch(err => { console.log(err) })
+  };
 
 
   const onChangeCodigo = (event) => {
@@ -41,32 +42,32 @@ function UnirCursoModal({toggleUnirCursoModal}) {
 
   return (
     <>
-        <MDBModalDialog>
-          <MDBModalContent>
-            <MDBModalHeader>
-              <MDBModalTitle>Unir Curso</MDBModalTitle>
-              <MDBBtn className='btn-close' color='none' onClick={toggleUnirCursoModal}></MDBBtn>
-            </MDBModalHeader>
-            <MDBModalBody>
-              <form>
-                  <div className = 'mb-3'>
-                        <MDBInput
-                        value={varyingCodigo}
-                        onChange={onChangeCodigo}
-                        labelclassName='col-form-label'
-                        label='Código:'
-                        />
-                  </div>
-              </form>
-            </MDBModalBody>
-            <MDBModalFooter>
-              <MDBBtn color='secondary' onClick={toggleUnirCursoModal}>
-                Cerrar
-              </MDBBtn>
-              <MDBBtn onClick={envCodigo}>Enviar</MDBBtn>
-            </MDBModalFooter>
-          </MDBModalContent>
-        </MDBModalDialog>
+      <MDBModalDialog>
+        <MDBModalContent>
+          <MDBModalHeader>
+            <MDBModalTitle>Unir Curso</MDBModalTitle>
+            <MDBBtn className='btn-close' color='none' onClick={toggleUnirCursoModal}></MDBBtn>
+          </MDBModalHeader>
+          <MDBModalBody>
+            <form>
+              <div className='mb-3'>
+                <MDBInput
+                  value={varyingCodigo}
+                  onChange={onChangeCodigo}
+                  labelclassName='col-form-label'
+                  label='Código:'
+                />
+              </div>
+            </form>
+          </MDBModalBody>
+          <MDBModalFooter>
+            <MDBBtn color='secondary' onClick={toggleUnirCursoModal}>
+              Cerrar
+            </MDBBtn>
+            <MDBBtn onClick={envCodigo}>Enviar</MDBBtn>
+          </MDBModalFooter>
+        </MDBModalContent>
+      </MDBModalDialog>
     </>
   );
 }
