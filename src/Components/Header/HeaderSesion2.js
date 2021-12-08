@@ -1,7 +1,7 @@
 //import React, { useState } from 'react';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import HeaderAlumno from './HeaderAlumno';
+import HeaderAlumno from './HeaderAlumno2';
 import HeaderProfesor from './HeaderProfesor2';
 import Header from './Header';
 export default function App() {
