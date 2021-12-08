@@ -20,7 +20,7 @@ function ProfileModal({togglePerfilModal}) {
     axios.get("http://localhost:5000/api/user/login",{withCredentials: true}).then(response => {
         setData(response.data[0]);
     });
-    axios.get("http://localhost:5000/api/course/index").then(response => {
+    axios.get("http://localhost:5000/api/user/courses",{withCredentials: true}).then(response => {
       setDataC(response.data);
     });
 }, []);
