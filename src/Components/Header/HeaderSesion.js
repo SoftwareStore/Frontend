@@ -1,6 +1,6 @@
 //import React, { useState } from 'react';
-import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import HeaderAlumno from './HeaderAlumno';
 import HeaderProfesor from './HeaderProfesor';
 import Header from './Header';
@@ -11,7 +11,7 @@ export default function App() {
   useEffect(() => {
     axios.get("http://localhost:5000/api/user/login",{withCredentials: true}).then(response => {
       setData(response.data[0].role);
-    });
+    }).catch(err=>console.log(err));
   }, []);
 
   if(data === "Alumno"){

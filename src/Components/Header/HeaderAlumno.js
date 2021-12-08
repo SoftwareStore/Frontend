@@ -20,6 +20,7 @@ import Logo from '../../Assets/Img/logoA.png'
 
 import PerfilModal from '../Modal/PerfilModal';
 import CrearCursoModal from '../Modal/CrearCursoModal';
+import UnirCursoModal from '../Modal/UnirCursoModal'
 import CrearAnuncioModal from '../Modal/CrearAnuncioModal';
 import CrearTareaModal from '../Modal/CrearTareaModal';
 import { useParams } from 'react-router-dom';
@@ -32,6 +33,9 @@ export default function App() {
 
   const [gridCrearCursoModal, setGridCrearCursoModal] = useState(false);
   const toggleCrearCursoModal = () => setGridCrearCursoModal(!gridCrearCursoModal);
+
+  const [gridUnirCursoModal, setGridUnirCursoModal] = useState(false);
+  const toggleUnirCursoModal = () => setGridUnirCursoModal(!gridUnirCursoModal);
   
   const [gridCrearAnuncioModal, setGridCrearAnuncioModal] = useState(false);
   const toggleCrearAnuncioModal = () => setGridCrearAnuncioModal(!gridCrearAnuncioModal);
@@ -78,6 +82,9 @@ export default function App() {
               {/* <MDBNavbarItem>
                 <MDBNavbarLink onClick={toggleCrearCursoModal}>Crear curso</MDBNavbarLink>
               </MDBNavbarItem> */}
+              <MDBNavbarItem>
+                <MDBNavbarLink onClick={toggleUnirCursoModal}>Unirse al curso</MDBNavbarLink>
+              </MDBNavbarItem>
               {/* <MDBNavbarItem>
                 <MDBNavbarLink href={'/CrearExamen/'+id}>Crear examen</MDBNavbarLink>
               </MDBNavbarItem> */}
@@ -107,6 +114,9 @@ export default function App() {
       </MDBModal>
       <MDBModal tabIndex='-1' show={gridCrearCursoModal}>
         <CrearCursoModal toggleCrearCursoModal={toggleCrearCursoModal}/>
+      </MDBModal>
+      <MDBModal tabIndex='-1' show={gridUnirCursoModal}>
+        <UnirCursoModal toggleUnirCursoModal={toggleUnirCursoModal}/>
       </MDBModal>
       <MDBModal tabIndex='-1' show={gridCrearAnuncioModal}>
         <CrearAnuncioModal toggleCrearAnuncioModal={toggleCrearAnuncioModal}/>
