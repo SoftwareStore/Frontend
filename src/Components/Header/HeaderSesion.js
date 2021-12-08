@@ -14,12 +14,12 @@ export default function App() {
     });
   }, []);
 
-  if(data === "Profesor"){
+  if(data === "Alumno"){
     return(
       <HeaderAlumno></HeaderAlumno>
     )
   }
-  else if(data === "Alumno"){
+  else if(data === "Profesor"){
     return(
       <HeaderProfesor></HeaderProfesor>
     )
