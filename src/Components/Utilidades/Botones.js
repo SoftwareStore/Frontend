@@ -105,22 +105,22 @@ function Botones() {
             if(res.status===200)
                 history.push("/");
         }).catch((err) =>{
-            window.location.replace("https://classroombackend.herokuapp.com/auth/google/redirect");
+            window.location.replace("");
         });     
     };
 
     function loginFacebook()
 	{
-		window.location.replace("https://classroombackend.herokuapp.com/auth/facebook/redirect");
+		window.location.replace("");
 	}
         return (
             <div style={{ display: 'flex', flexWrap: 'wrap' }} >
                 <Wrapper>
-                    <BtnFacebook onClick={loginFacebook}>
-                        <a>&nbsp;&nbsp;Facebook</a>
+                    <BtnFacebook >
+                        <a href="https://classroombackend.herokuapp.com/auth/facebook">&nbsp;&nbsp;Facebook</a>
                         </BtnFacebook >
-                    <BtnGoogle onClick={loginGoogle}>
-                        <a>&nbsp;&nbsp;Google</a>
+                    <BtnGoogle >
+                        <a href="https://classroombackend.herokuapp.com/auth/google">&nbsp;&nbsp;Google</a>
                         </BtnGoogle >
                     {/* <BtnTwitter>
                         &nbsp;&nbsp;Twitter
