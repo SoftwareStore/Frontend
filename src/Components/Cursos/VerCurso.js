@@ -57,7 +57,10 @@ function VerCurso(props) {
     const listHomework = data.course[0].homeworks.map((item) =>
         <MDBListGroupItem> <p>{item.Title}</p>
             {/* <MDBCardLink href='#'>Card link</MDBCardLink> */}
-            <MDBBtn onClick={() => toggleShowHomework(item)} >Ver tarea</MDBBtn>
+            <MDBBtn 
+            // onClick={() => toggleShowHomework(item)} 
+            href={'/VerTarea/'+id+'/'+item._id}
+            >Ver tarea</MDBBtn>
 
         </MDBListGroupItem>
     )
