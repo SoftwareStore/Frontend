@@ -1,0 +1,51 @@
+.cuadroinicial{
+   
+    height: 60%;
+    opacity: 0.9;
+    
+
+}
+.textoresumen{
+    display: none;
+}
+
+@media (max-width: 450px) {
+    .textoresumen{
+        display: contents;
+    }
+    
+    #texto2{  
+        
+        display: none;
+    } 
+        
+    
+    
+  }
+.imagen{
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+
+
+
+#fondo {
+	background-image: url("../../Assets/Img/Laptop.jpg");
+	padding: 400px 100px;
+	text-align: center;
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: relative;
+    height: 570px;
+}
+#fondo:before {
+	content:'';
+	position: absolute;
+    top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0,0,0,0.6);
+}
