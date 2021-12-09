@@ -49,7 +49,7 @@ export default function App() {
                         <div class="col-md-4">
                             <div class="testimonial mb-5">
                                 <div class="avatar mx-auto">
-                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(8).jpg" class="imagen"/>
+                                    <img src="Anchi_foto.jpeg" class="imagen"/>
                                 </div>
                                 <h4 class="font-weight-bold dark-grey-text mt-4">Hairton Andree Anchi Dueñas</h4>
                                 <h6 class="font-weight-bold blue-text my-3">Desarrollador</h6>
