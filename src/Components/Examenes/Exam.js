@@ -68,7 +68,7 @@ function Exam() {
             confirmButtonText: 'Si , envialo!'
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.post("https://classroombackend.herokuapp.com/api/exam/newExam/" + id, examen).then(response => { console.log(response) })
+                axios.post("http://localhost:5000/api/exam/newExam/" + id, examen).then(response => { console.log(response) })
                 Swal.fire(
                     'Enviado!',
                     'El examen fue enviado.',
@@ -85,7 +85,7 @@ function Exam() {
     useEffect(() => {
         //consulta a la api con el id del link
         axios
-            .get("https://classroombackend.herokuapp.com/api/course/" + id)
+            .get("http://localhost:5000/api/course/" + id)
             .then((response) => {
                 setData(response.data);
                 setLoading(false);

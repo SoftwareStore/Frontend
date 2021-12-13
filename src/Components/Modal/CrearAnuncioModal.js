@@ -78,7 +78,7 @@ function CrearAnuncioModal({ toggleCrearAnuncioModal }) {
               Cerrar
             </MDBBtn>
             <MDBBtn onClick={() => {
-              axios.post('https://classroombackend.herokuapp.com/api/announcement/newAnnouncement', {
+              axios.post('http://localhost:5000/api/announcement/newAnnouncement', {
                 Title: varyingCodigo,
                 Description: varyingProfesor,
                 Submit: datevalueSubmit,

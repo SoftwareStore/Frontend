@@ -105,7 +105,7 @@ export default function App() {
                 {/* <MDBDropdownItem onClick={toggleCrearCursoModal} href="#!">Crear curso</MDBDropdownItem> */}
                 <MDBDropdownItem onClick={toggleCrearTareaModal} href="#!">Crear tarea</MDBDropdownItem>
                 <MDBDropdownItem onClick={toggleCrearAnuncioModal} href="#!">Crear anuncio</MDBDropdownItem>
-                <MDBDropdownItem href="https://classroombackend.herokuapp.com/auth/logout">Cerrar sesion</MDBDropdownItem>
+                <MDBDropdownItem href="http://localhost:5000/auth/logout">Cerrar sesion</MDBDropdownItem>
               </MDBDropdownMenu>
             </MDBDropdown>
           </MDBCollapse>

@@ -27,7 +27,7 @@ function VerCurso(props) {
     const [announcementData, setAnnouncement] = useState('');
     useEffect(() => {
         //consulta a la api con el id del link
-        axios.get("https://classroombackend.herokuapp.com/api/course/" + id).then(response => {
+        axios.get("https://localhost:5000/api/course/" + id).then(response => {
             setData(response.data);
             setLoading(false);
         });

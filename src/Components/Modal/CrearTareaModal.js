@@ -22,8 +22,8 @@ function CrearTareaModal({ toggleCrearTareaModal }) {
   const { id } = useParams();
   const [varyingCodigo, setVaryingCodigo] = useState('');
   const [varyingNombre, setVaryingNombre] = useState('');
-  const [datevalueFrom, setdateValueFrom] = React.useState(new Date('2021-11-30T21:11:54'));
-  const [datevalueTo, setdateValueTo] = React.useState(new Date('2021-11-30T21:11:54'));
+  const [datevalueFrom, setdateValueFrom] = React.useState(new Date());
+  const [datevalueTo, setdateValueTo] = React.useState(new Date());
 
 
   const onChangeCodigo = (event) => {
@@ -101,7 +101,7 @@ function CrearTareaModal({ toggleCrearTareaModal }) {
               Cerrar
             </MDBBtn>
             <MDBBtn onClick={() => {
-              axios.post('https://classroombackend.herokuapp.com/api/homework/newHomework', {
+              axios.post('http://localhost:5000/api/homework/newHomework', {
                 Title: varyingCodigo,
                 Description: varyingNombre,
                 From: datevalueFrom,

@@ -16,7 +16,7 @@ function Registro() {
             e.preventDefault();
             await Axios({
                 method: "POST",
-                url: "https://classroombackend.herokuapp.com/api/user/register", // <-- ruta Registro del servidor 
+                url: "http://localhost:5000/api/user/register", // <-- ruta Registro del servidor 
                 data: {
                     firstName: registroFirstName,
                     lastName: registroLastName,

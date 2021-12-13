@@ -71,7 +71,7 @@ function CrearCursoModal({toggleCrearCursoModal}) {
                 Cerrar
               </MDBBtn>
               <MDBBtn onClick={()=>{
-                axios.post('https://classroombackend.herokuapp.com/api/course/',{
+                axios.post('http://localhost:5000/api/course/',{
                   Code:varyingCodigo,
                   Name:varyingNombre,
                   TypeOfCourse:varyingTipoCurso

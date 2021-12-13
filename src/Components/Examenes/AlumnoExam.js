@@ -12,7 +12,7 @@ function AlumnoExam() {
     const [user, setuser] = useState()
     const [isLoading, setLoading] = useState(true);
     useEffect(() => {
-        axios.get('https://classroombackend.herokuapp.com/api/exam/getExam/' + codigo).then((res) => {
+        axios.get('http://localhost:5000/api/exam/getExam/' + codigo).then((res) => {
             // console.log(res.data.exam[0])
             setdata(res.data.exam[0])
             setLoading(false);
@@ -35,13 +35,17 @@ function AlumnoExam() {
     return (
         <div className="d-flex justify-content-center">
             <Quiz quiz={data} onComplete={(grade) => {
-                grade.course = codigo
+                if (grade.totalPoints != 0) {
+                    grade.course = codigo
 
-                grade.user = user._id
-                // console.log(e)
-                console.log(grade)
-                axios.post("http://localhost:5000/api/respon/newResponExam",  grade 
-                ).then((response) => { console.log(response) })
+                    grade.user = user._id
+                    // console.log(e)
+                    console.log(grade)
+                    axios.post("http://localhost:5000/api/respon/newResponExam", grade
+                    ).then((response) => { console.log(response) })
+
+
+                }
 
             }
 

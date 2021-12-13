@@ -31,7 +31,7 @@ function Tarea() {
 
     useEffect(() => {
 
-        axios.get('https://classroombackend.herokuapp.com/api/homework/main/' + codigo).then(response => {
+        axios.get('http://localhost:5000/api/homework/main/' + codigo).then(response => {
             // console.log(response.data.homework[0])
             setdata(response.data.homework[0])
             setfromDate(moment(response.data.homework[0].From).format('DD MMM, YYYY hh:mm'))
