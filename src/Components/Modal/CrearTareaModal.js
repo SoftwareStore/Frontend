@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {
   MDBBtn,
-  MDBModal,
+
   MDBModalDialog,
   MDBModalContent,
   MDBModalHeader,
@@ -108,7 +108,7 @@ function CrearTareaModal({ toggleCrearTareaModal }) {
                 To: datevalueTo,
                 code: id
               }).then(response => {
-                if (response.status == 200) {
+                if (response.status === 200) {
                   window.location.reload(false);
                 }
               })

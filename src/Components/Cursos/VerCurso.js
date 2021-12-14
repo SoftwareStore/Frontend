@@ -1,6 +1,6 @@
 import {
-    MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBRow,
-    MDBCol, MDBBtn, MDBListGroup, MDBListGroupItem, MDBCardLink,
+    MDBCard, MDBCardBody, MDBCardTitle,  MDBRow,
+    MDBCol, MDBBtn, MDBListGroup, MDBListGroupItem, 
     MDBModal,
     MDBModalDialog,
     MDBModalContent,
@@ -28,7 +28,7 @@ function VerCurso(props) {
     useEffect(() => {
         //consulta a la api con el id del link
         axios.get("http://localhost:5000/api/course/" + id).then(response => {
-            console.log(response)
+        
             setData(response.data);
             setLoading(false);
         });

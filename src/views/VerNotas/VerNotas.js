@@ -1,24 +1,13 @@
 import React from 'react'
 import HeaderSesion from '../../Components/Header/HeaderSesion'
-
-import CrearExamenTemplate from '../../Components/Examenes/Exam'
-
-
-
-
-function CrearExamen() {
-   
-
-
-
-
+import VerNotasTemplate from '../../Components/VerNotas/VerNotas'
+function VerNotas() {
     return (
         <div>
             <HeaderSesion/>
-            <CrearExamenTemplate/>
-   
+            {/* <VerNotasTemplate/> */}
         </div>
     )
 }
 
-export default CrearExamen
+export default VerNotas

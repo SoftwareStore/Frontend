@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MDBBtn,
-  MDBModal,
+
   MDBModalDialog,
   MDBModalContent,
   MDBModalHeader,
@@ -10,9 +10,9 @@ import { MDBBtn,
   MDBInput,
 } from 'mdb-react-ui-kit';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+
 function CrearCursoModal({toggleCrearCursoModal}) {
-  const { id } = useParams();
+
   const [varyingCodigo, setVaryingCodigo] = useState('');
   const [varyingNombre, setVaryingNombre] = useState('');
   const [varyingTipoCurso, setVaryingTipoCurso] = useState('');
@@ -76,7 +76,7 @@ function CrearCursoModal({toggleCrearCursoModal}) {
                   Name:varyingNombre,
                   TypeOfCourse:varyingTipoCurso
                 }).then(response=>{
-                  if(response.status==200){
+                  if(response.status===200){
                     window.location.reload(false);
                   }
                 })

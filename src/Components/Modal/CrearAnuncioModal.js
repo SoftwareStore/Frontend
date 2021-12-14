@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {
   MDBBtn,
-  MDBModal,
+
   MDBModalDialog,
   MDBModalContent,
   MDBModalHeader,
@@ -18,10 +18,10 @@ import { useParams } from 'react-router-dom';
 function CrearAnuncioModal({ toggleCrearAnuncioModal }) {
   const [varyingCodigo, setVaryingCodigo] = useState('');
   const [varyingProfesor, setVaryingProfesor] = useState('');
-  const [varyingAnuncio, setVaryingAnuncio] = useState('');
+
 
   const { id } = useParams();
-  const [datevalueSubmit, setdateValueSubmit] = useState(new Date());
+  const [datevalueSubmit] = useState(new Date());
 
 
   const onChangeCodigo = (event) => {
@@ -32,9 +32,7 @@ function CrearAnuncioModal({ toggleCrearAnuncioModal }) {
     setVaryingProfesor(event.target.value);
   };
 
-  const onChangeAnuncio = (event) => {
-    setVaryingAnuncio(event.target.value);
-  };
+ 
 
   return (
     <>
@@ -62,14 +60,7 @@ function CrearAnuncioModal({ toggleCrearAnuncioModal }) {
                   label='Descripcion:'
                 />
               </div>
-              {/* <div className='mb-3'>
-                <MDBInput
-                  value={varyingAnuncio}
-                  onChange={onChangeAnuncio}
-                  labelclassName='col-form-label'
-                  label='Anuncio:'
-                />
-              </div> */}
+             
 
             </form>
           </MDBModalBody>
@@ -84,7 +75,7 @@ function CrearAnuncioModal({ toggleCrearAnuncioModal }) {
                 Submit: datevalueSubmit,
                 code: id
               }).then(response => {
-                if (response.status == 200) {
+                if (response.status === 200) {
                   window.location.reload(false);
                 }
       

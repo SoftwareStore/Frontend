@@ -11,7 +11,9 @@ export default function App() {
   useEffect(() => {
     axios.get("http://localhost:5000/api/user/login",{withCredentials: true}).then(response => {
       setData(response.data[0].role);
-    }).catch(err=>console.log(err));
+    }).catch(err=>{
+      
+    });
   }, []);
   
   if(data === "Alumno"){

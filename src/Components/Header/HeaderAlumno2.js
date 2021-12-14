@@ -82,18 +82,7 @@ export default function App() {
               <MDBNavbarItem>
                 <MDBNavbarLink href='/ListCurso'>Ver cursos</MDBNavbarLink>
               </MDBNavbarItem>
-              {/* <MDBNavbarItem>
-                <MDBNavbarLink onClick={toggleCrearCursoModal}>Crear curso</MDBNavbarLink>
-              </MDBNavbarItem> */}
-              {/* <MDBNavbarItem>
-                <MDBNavbarLink onClick={toggleUnirCursoModal}>Unirse al curso</MDBNavbarLink>
-              </MDBNavbarItem> */}
-              {/* <MDBNavbarItem>
-                <MDBNavbarLink href={'/CrearExamen/'+id}>Crear examen</MDBNavbarLink>
-              </MDBNavbarItem> */}
-              {/* <MDBNavbarItem>
-                <MDBNavbarLink href='/VerCurso'>Ver curso</MDBNavbarLink>
-              </MDBNavbarItem> */}
+             
             </MDBNavbarNav>
             <MDBDropdown tag='li' className='nav-item dropleft' >
               <MDBDropdownToggle nav caret>
@@ -102,9 +91,7 @@ export default function App() {
 
               <MDBDropdownMenu className="dropdown-default ">
                 <MDBDropdownItem onClick={togglePerfilModal} href="#!">Perfil</MDBDropdownItem>
-                {/* <MDBDropdownItem onClick={toggleCrearCursoModal} href="#!">Crear curso</MDBDropdownItem> */}
-                {/* <MDBDropdownItem onClick={toggleCrearTareaModal} href="#!">Crear tarea</MDBDropdownItem> */}
-                {/* <MDBDropdownItem onClick={toggleCrearAnuncioModal} href="#!">Crear anuncio</MDBDropdownItem> */}
+                <MDBDropdownItem  href={'/VerNotas/'+id}>Ver notas</MDBDropdownItem>
                 <MDBDropdownItem href="http://localhost:5000/auth/logout">Cerrar sesion</MDBDropdownItem>
               </MDBDropdownMenu>
             </MDBDropdown>

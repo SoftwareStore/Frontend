@@ -1,7 +1,7 @@
-import Axios from 'axios';
-import React, { Component, useState } from 'react'
+
+import React from 'react'
 import styled from 'styled-components';
-import { useHistory } from "react-router-dom";
+
 
 const Wrapper = styled.div`
     @media only screen and (max-width : 399px) {
@@ -41,54 +41,7 @@ const BtnGoogle = styled.button`
         opacity: 0.6;
     }
 `
-const BtnTwitter = styled.button`
-    width: 320px;
-    height:45px;  
-    border-radius: 4px;
-    background: #55acee;
-    color:white;
-    border:0px transparent;  
-    text-align: center;
-    margin:5px;
-    display: inline-block;
 
-    &:hover{
-        background: #3b5998;
-        opacity: 0.6;
-    }
-`;
-const BtnInstagram = styled.button`
-    width: 320px;
-    height:45px;  
-    border-radius: 4px;
-    background: #ac2bac;
-    color:white;
-    border:0px transparent;  
-    text-align: center;
-    margin:5px;
-    display: inline-block;
-
-    &:hover{
-        background: #3b5998;
-        opacity: 0.6;
-    }
-`;
-const BtnLinkedin = styled.button`
-    width: 320px;
-    height:45px;  
-    border-radius: 4px;
-    background: #0082ca;
-    color:white;
-    border:0px transparent;  
-    text-align: center;
-    margin:5px;
-    display: inline-block;
-
-    &:hover{
-        background: #3b5998;
-        opacity: 0.6;
-    }
-`;
     
 function Botones() {
         return (
@@ -100,15 +53,7 @@ function Botones() {
                     <BtnGoogle >
                         <a href="https://classroombackend.herokuapp.com/auth/google">&nbsp;&nbsp;Google</a>
                         </BtnGoogle >
-                    {/* <BtnTwitter>
-                        &nbsp;&nbsp;Twitter
-                    </BtnTwitter>
-                    <BtnInstagram>
-                        &nbsp;&nbsp;Instagram
-                    </BtnInstagram>
-                    <BtnLinkedin>
-                        &nbsp;&nbsp;Linkedin
-                    </BtnLinkedin> */}
+                   
                 </Wrapper>
             </div>
         )

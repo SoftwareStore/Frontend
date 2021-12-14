@@ -1,4 +1,4 @@
-//import React, { useState } from 'react';
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import HeaderAlumno from './HeaderAlumno2';
@@ -11,9 +11,11 @@ export default function App() {
   useEffect(() => {
     axios.get("http://localhost:5000/api/user/login",{withCredentials: true}).then(response => {
       setData(response.data[0].role);
-    }).catch(err=>console.log(err));
+    }).catch(err=>{
+      
+    });
   }, []);
-console.log(data)
+
   if(data === "Alumno"){
     return(
       <HeaderAlumno></HeaderAlumno>

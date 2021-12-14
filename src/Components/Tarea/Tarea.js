@@ -2,11 +2,11 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import { MDBTypography } from 'mdb-react-ui-kit';
-import { da } from 'date-fns/locale';
+
 import moment from 'moment';
 moment().format();
 function Tarea() {
-    const { id, codigo } = useParams()
+    const {  codigo } = useParams()
     const [data, setdata] = useState()
     const [isLoading, setLoading] = useState(true);
 
@@ -32,7 +32,7 @@ function Tarea() {
     useEffect(() => {
 
         axios.get('http://localhost:5000/api/homework/main/' + codigo).then(response => {
-            // console.log(response.data.homework[0])
+           
             setdata(response.data.homework[0])
             setfromDate(moment(response.data.homework[0].From).format('DD MMM, YYYY hh:mm'))
             settoDate(moment(response.data.homework[0].To).format('DD MMM, YYYY hh:mm'))
@@ -48,7 +48,7 @@ function Tarea() {
         </div>
     }
 
-    // console.log(fromDate)
+
     // const dia = fromDate.getTime()
     if (toDate >= dateNow) {
         return (<div>

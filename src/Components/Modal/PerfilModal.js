@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { MDBBtn,
-  MDBModal,
+  
   MDBModalDialog,
   MDBModalContent,
   MDBModalHeader,
@@ -62,7 +62,7 @@ const listC =dataC.map((item) =>
 
                   </div>
                   <div className='col-md-4 ms-auto col-example'>
-                    <img src={Imgp} className='Perfil' style={{ width: '130px' }} />
+                    <img src={Imgp} alt='Foto' className='Perfil' style={{ width: '130px' }} />
                     </div>
                 </div>
               </div>

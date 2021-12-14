@@ -20,7 +20,7 @@ function Login() {
             withCredentials: true,
              
         }).then((res) => {
-            //console.log(res)
+           
             if(res.status===200)
                 history.push("/ListCurso");
         }

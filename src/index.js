@@ -15,6 +15,7 @@ import CrearExamen from './views/CrearExamen/CrearExamen';
 import TomarExamen from './views/TomarExamen/TomarExamen';
 import VerTarea from './views/VerTarea/VerTarea';
 import About from './views/About/About'
+import VerNotas from './views/VerNotas/VerNotas';
 // Stylos
 import './index.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -33,7 +34,9 @@ ReactDOM.render(
       <Route exact path="/CrearExamen/:id" component={CrearExamen} />
       <Route exact path="/TomarExamen/:id/:codigo" component={TomarExamen} />
       <Route exact path="/VerTarea/:id/:codigo" component={VerTarea} />
-      <Route exact path="/About" component={About}/>
+      <Route exact path="/About" component={About} />
+      <Router exact path="/VerNotas/:id" component={VerNotas} />
+
 
     </Router>
   </React.StrictMode>,

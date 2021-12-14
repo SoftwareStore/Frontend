@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import {
   MDBBtn,
-  MDBModal,
+ 
   MDBModalDialog,
   MDBModalContent,
   MDBModalHeader,
@@ -20,7 +20,7 @@ function UnirCursoModal({ toggleUnirCursoModal }) {
   useEffect(() => {
     axios.get("http://localhost:5000/api/user/login", { withCredentials: true }).then(response => {
       setid(response.data[0]._id);
-    }).catch(err => { console.log(err) });
+    }).catch(err => {  });
   }, []);
 
   const envCodigo = async e => {
@@ -32,7 +32,7 @@ function UnirCursoModal({ toggleUnirCursoModal }) {
         participants: id
       },
       withCredentials: true,
-    }).then(window.location.reload()).catch(err => { console.log(err) })
+    }).then(window.location.reload()).catch(err => {  })
   };
 
 

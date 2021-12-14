@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams,useHistory } from "react-router-dom";
-import Quiz from "react-quiz-component";
+
 import {
     MDBCard,
     MDBBtn,
@@ -57,7 +57,7 @@ function Exam() {
     const handleSubmit = (e) => {
         e.preventDefault()
         examen.questions = preguntasFinal;
-        // console.log(examen)
+       
         Swal.fire({
             title: '¿Estas seguro?',
             text: "No podras revertir esta accion",
@@ -68,7 +68,7 @@ function Exam() {
             confirmButtonText: 'Si , envialo!'
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.post("http://localhost:5000/api/exam/newExam/" + id, examen).then(response => { console.log(response) })
+                axios.post("http://localhost:5000/api/exam/newExam/" + id, examen).then(response => {  })
                 Swal.fire(
                     'Enviado!',
                     'El examen fue enviado.',

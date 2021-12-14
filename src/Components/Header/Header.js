@@ -7,11 +7,11 @@ import {
   MDBNavbarItem,
   MDBNavbarLink,
   MDBCollapse,
-  MDBBtn,
+  
   MDBNavbarNav,
   MDBIcon
 } from 'mdb-react-ui-kit';
-import { MDBNavItem, MDBDropdownToggle, MDBDropdownItem, MDBDropdown, MDBDropdownMenu } from 'mdbreact';
+
 import Logo from '../../Assets/Img/logoA.png'
 export default function App() {
   const [showNavNoTogglerThird, setShowNavNoTogglerThird] = useState(false);
@@ -31,7 +31,7 @@ export default function App() {
             <MDBIcon icon='bars' fas />
           </MDBNavbarToggler>
           <MDBNavbarBrand href='/'>
-            <img src={Logo} className='logoA' style={{width:'45px'}} />
+            <img src={Logo} alt='Logo' className='logoA' style={{width:'45px'}} />
           </MDBNavbarBrand>
           <MDBCollapse navbar show={showNavNoTogglerThird}>
             <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>
