@@ -91,28 +91,6 @@ const BtnLinkedin = styled.button`
 `;
     
 function Botones() {
-    let history = useHistory();
-
-    const loginGoogle = async e =>{
-        e.preventDefault();
-        await Axios({
-            method: "POST",
-            url: "http://localhost:5000/api/user/login", // <-- ruta Login del servidor
-            withCredentials: true,
-             
-        }).then((res) => {
-            //console.log(res)
-            if(res.status===200)
-                history.push("/");
-        }).catch((err) =>{
-            window.location.replace("");
-        });     
-    };
-
-    function loginFacebook()
-	{
-		window.location.replace("");
-	}
         return (
             <div style={{ display: 'flex', flexWrap: 'wrap' }} >
                 <Wrapper>
