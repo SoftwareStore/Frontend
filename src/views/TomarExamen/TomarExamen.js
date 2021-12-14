@@ -8,7 +8,7 @@ function TomarExamen() {
         <div>
             <HeaderSesion />
             <AlumnoExam />
-            <Footer />
+            {/* <Footer /> */}
         </div>
     )
 }

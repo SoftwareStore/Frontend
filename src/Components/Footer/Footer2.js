@@ -39,7 +39,7 @@ class Footer extends React.Component {
 <BtnGithub></BtnGithub>
                         <MDBCol size='lg' floating className='mb-4 mb-md-0'>
                             {/* <!-- Github --> */}
-                            <MDBBtn style={{ backgroundColor: '#333333' }} href='Backend'>
+                            <MDBBtn color='dark' style={{ backgroundColor: '#333333' }} href='Backend'>
                                 <MDBIcon fab icon='github' />
                             </MDBBtn>
                         </MDBCol>

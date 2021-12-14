@@ -7,7 +7,7 @@ function VerTarea() {
         <div>
             <HeaderSesion />
             <Tarea />
-            <Footer />
+            {/* <Footer /> */}
         </div>
     )
 }

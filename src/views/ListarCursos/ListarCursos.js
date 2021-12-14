@@ -10,7 +10,7 @@ function ListarCursos(props) {
           
             <Header/>
             <ListarCursosTemplate />
-            <Footer />
+            {/* <Footer /> */}
         </div>
 
     )

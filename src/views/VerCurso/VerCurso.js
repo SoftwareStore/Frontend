@@ -7,7 +7,7 @@ function VerCurso() {
         <div>
             <HeaderSesion />
             <VerCursoTemplate />
-            <Footer />
+            {/* <Footer /> */}
         </div>
     )
 }

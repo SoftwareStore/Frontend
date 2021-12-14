@@ -15,12 +15,13 @@ function AlumnoExam() {
         axios.get('http://localhost:5000/api/exam/getExam/' + codigo).then((res) => {
             // console.log(res.data.exam[0])
             setdata(res.data.exam[0])
+            axios.get("http://localhost:5000/api/user/login", { withCredentials: true }).then(response => {
+                setuser(response.data[0]);
+    
+            });
             setLoading(false);
         })
-        axios.get("http://localhost:5000/api/user/login", { withCredentials: true }).then(response => {
-            setuser(response.data[0]);
-
-        });
+      
     }, [])
     if (isLoading) {
         return <div class="d-flex justify-content-center">

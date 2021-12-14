@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from '../../Components/Header/Header'
 import AboutTemplate from '../../Components/About/About'
-import Footer from '../../Components/Footer/Footer1'
+import Footer from '../../Components/Footer/Footer2'
 
 function About() {
     return (

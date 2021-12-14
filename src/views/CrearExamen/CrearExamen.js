@@ -16,7 +16,7 @@ function CrearExamen() {
         <div>
             <HeaderSesion/>
             <CrearExamenTemplate/>
-            <Footer/>
+            {/* <Footer/> */}
         </div>
     )
 }
