@@ -60,7 +60,7 @@ export default function App() {
                         <div class="col-md-4">
                             <div class="testimonial mb-5">
                                 <div class="avatar mx-auto">
-                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg" class="imagen" />
+                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg" class="imagen" />
                                 </div>
                                 <h4 class="font-weight-bold dark-grey-text mt-4">Benedic Miguel Anicama Navarro</h4>
                                 <h6 class="font-weight-bold blue-text my-3">Desarrollador</h6>
@@ -70,7 +70,7 @@ export default function App() {
                         <div class="col-md-4">
                             <div class="testimonial mb-5">
                                 <div class="avatar mx-auto">
-                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg" class="imagen" />
+                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg" class="imagen" />
                                 </div>
                                 <h4 class="font-weight-bold dark-grey-text mt-4">Luis Antonio Rojas Huaroc</h4>
                                 <h6 class="font-weight-bold blue-text my-3">Desarrollador</h6>
