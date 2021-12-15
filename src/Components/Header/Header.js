@@ -6,13 +6,13 @@ import {
   MDBNavbarToggler,
   MDBNavbarItem,
   MDBNavbarLink,
-  MDBCollapse,
-  
+  MDBCollapse,  
   MDBNavbarNav,
   MDBIcon
 } from 'mdb-react-ui-kit';
 
 import Logo from '../../Assets/Img/logoA.png'
+
 export default function App() {
   const [showNavNoTogglerThird, setShowNavNoTogglerThird] = useState(false);
 
@@ -42,25 +42,8 @@ export default function App() {
               </MDBNavbarItem>
               <MDBNavbarItem>
                 <MDBNavbarLink href='/About'>About</MDBNavbarLink>
-              </MDBNavbarItem>
-              {/* <MDBNavbarItem>
-                <MDBNavbarLink href='/ListCurso'>Listar cursos</MDBNavbarLink>
-              </MDBNavbarItem> */}
-             
+              </MDBNavbarItem>             
             </MDBNavbarNav>
-            {/* <MDBDropdown tag='li' className='nav-item dropleft' >
-              <MDBDropdownToggle nav caret>
-                <MDBIcon icon="user" className="d-none d-md-inline" />
-              </MDBDropdownToggle>
-
-              <MDBDropdownMenu className="dropdown-default ">
-                <MDBDropdownItem href="#!">Action</MDBDropdownItem>
-                <MDBDropdownItem href="#!">Another Action</MDBDropdownItem>
-                <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-              </MDBDropdownMenu>
-            </MDBDropdown> */}
-
           </MDBCollapse>
         </MDBContainer>
       </MDBNavbar>

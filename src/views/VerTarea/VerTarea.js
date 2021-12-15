@@ -1,5 +1,5 @@
 import React from 'react'
-import HeaderSesion from '../../Components/Header/HeaderSesion'
+import HeaderSesion from '../../Components/Header/Header2'
 
 import Tarea from '../../Components/Tarea/Tarea'
 function VerTarea() {

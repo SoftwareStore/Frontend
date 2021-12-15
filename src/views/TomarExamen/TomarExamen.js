@@ -1,6 +1,6 @@
 import React from 'react'
 import AlumnoExam from '../../Components/Examenes/AlumnoExam'
-import HeaderSesion from '../../Components/Header/HeaderSesion'
+import HeaderSesion from '../../Components/Header/Header2'
 
 
 function TomarExamen() {

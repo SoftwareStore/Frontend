@@ -68,7 +68,7 @@ function VerCurso(props) {
 
     const listAnno = data.course[0].announcements.map((anno) =>
         <MDBListGroupItem> <p>{anno.Title}</p>
-            <MDBBtn onClick={() => toggleShowAnnouncements(anno)} >Ver tarea</MDBBtn>
+            <MDBBtn onClick={() => toggleShowAnnouncements(anno)} >Ver Anuncio</MDBBtn>
 
         </MDBListGroupItem>
     )

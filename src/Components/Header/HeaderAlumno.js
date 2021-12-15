@@ -1,6 +1,5 @@
-//import React, { useState } from 'react';
-import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import {
   MDBNavbar,
   MDBContainer,
@@ -9,21 +8,17 @@ import {
   MDBNavbarItem,
   MDBNavbarLink,
   MDBCollapse,
-
   MDBNavbarNav,
   MDBIcon,
-
   MDBModal
 } from 'mdb-react-ui-kit';
-import {  MDBDropdownToggle, MDBDropdownItem, MDBDropdown, MDBDropdownMenu } from 'mdbreact';
-import Logo from '../../Assets/Img/logoA.png'
+import { MDBDropdownToggle, MDBDropdownItem, MDBDropdown, MDBDropdownMenu } from 'mdbreact';
 
 import PerfilModal from '../Modal/PerfilModal';
-import CrearCursoModal from '../Modal/CrearCursoModal';
-import UnirCursoModal from '../Modal/UnirCursoModal'
-import CrearAnuncioModal from '../Modal/CrearAnuncioModal';
-import CrearTareaModal from '../Modal/CrearTareaModal';
-import { useParams } from 'react-router-dom';
+import UnirCursoModal from '../Modal/UnirCursoModal';
+
+import Logo from '../../Assets/Img/logoA.png'
+
 export default function App() {
   const { id } = useParams();
   const [showNavNoTogglerThird, setShowNavNoTogglerThird] = useState(false);
@@ -31,25 +26,9 @@ export default function App() {
   const [gridPerfilModal, setGridPerfilModal] = useState(false);
   const togglePerfilModal = () => setGridPerfilModal(!gridPerfilModal);
 
-  const [gridCrearCursoModal, setGridCrearCursoModal] = useState(false);
-  const toggleCrearCursoModal = () => setGridCrearCursoModal(!gridCrearCursoModal);
-
   const [gridUnirCursoModal, setGridUnirCursoModal] = useState(false);
   const toggleUnirCursoModal = () => setGridUnirCursoModal(!gridUnirCursoModal);
   
-  const [gridCrearAnuncioModal, setGridCrearAnuncioModal] = useState(false);
-  const toggleCrearAnuncioModal = () => setGridCrearAnuncioModal(!gridCrearAnuncioModal);
-
-  const [gridCrearTareaModal, setGridCrearTareaModal] = useState(false);
-  const toggleCrearTareaModal = () => setGridCrearTareaModal(!gridCrearTareaModal);
-
-  const [data, setData] = useState();
-
-  useEffect(() => {
-    axios.get("http://localhost:5000/api/user/login",{withCredentials: true}).then(response => {
-      setData(response.data[0].role);
-    });
-  }, []);
 
   return (
     <>
@@ -103,20 +82,11 @@ export default function App() {
         </MDBContainer>
       </MDBNavbar>
 
-      <MDBModal tabIndex='-1' show={gridPerfilModal}>
+      <MDBModal staticBackdrop tabIndex='-1' show={gridPerfilModal} setShow={setGridPerfilModal}>
         <PerfilModal togglePerfilModal={togglePerfilModal}/>
       </MDBModal>
-      <MDBModal tabIndex='-1' show={gridCrearCursoModal}>
-        <CrearCursoModal toggleCrearCursoModal={toggleCrearCursoModal}/>
-      </MDBModal>
-      <MDBModal tabIndex='-1' show={gridUnirCursoModal}>
+      <MDBModal staticBackdrop tabIndex='-1' show={gridUnirCursoModal} setShow={setGridUnirCursoModal}>
         <UnirCursoModal toggleUnirCursoModal={toggleUnirCursoModal}/>
-      </MDBModal>
-      <MDBModal tabIndex='-1' show={gridCrearAnuncioModal}>
-        <CrearAnuncioModal toggleCrearAnuncioModal={toggleCrearAnuncioModal}/>
-      </MDBModal>
-      <MDBModal tabIndex='-1' show={gridCrearTareaModal}>
-        <CrearTareaModal toggleCrearTareaModal={toggleCrearTareaModal}/>
       </MDBModal>
       
     </>);

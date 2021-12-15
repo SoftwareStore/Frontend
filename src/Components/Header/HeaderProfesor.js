@@ -1,6 +1,5 @@
-//import React, { useState } from 'react';
-import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import {
   MDBNavbar,
   MDBContainer,
@@ -9,21 +8,20 @@ import {
   MDBNavbarItem,
   MDBNavbarLink,
   MDBCollapse,
-  MDBBtn,
   MDBNavbarNav,
   MDBIcon,
-
   MDBModal
 } from 'mdb-react-ui-kit';
-import { MDBNavItem, MDBDropdownToggle, MDBDropdownItem, MDBDropdown, MDBDropdownMenu } from 'mdbreact';
-import Logo from '../../Assets/Img/logoA.png'
+import { MDBDropdownToggle, MDBDropdownItem, MDBDropdown, MDBDropdownMenu } from 'mdbreact';
 
 import PerfilModal from '../Modal/PerfilModal';
 import CrearCursoModal from '../Modal/CrearCursoModal';
 import UnirCursoModal from '../Modal/UnirCursoModal'
 import CrearAnuncioModal from '../Modal/CrearAnuncioModal';
 import CrearTareaModal from '../Modal/CrearTareaModal';
-import { useParams } from 'react-router-dom';
+
+import Logo from '../../Assets/Img/logoA.png'
+
 export default function App() {
   const { id } = useParams();
   const [showNavNoTogglerThird, setShowNavNoTogglerThird] = useState(false);
@@ -42,14 +40,6 @@ export default function App() {
 
   const [gridCrearTareaModal, setGridCrearTareaModal] = useState(false);
   const toggleCrearTareaModal = () => setGridCrearTareaModal(!gridCrearTareaModal);
-
-  const [data, setData] = useState();
-
-  useEffect(() => {
-    axios.get("http://localhost:5000/api/user/login",{withCredentials: true}).then(response => {
-      setData(response.data[0].role);
-    });
-  }, []);
   
     return(
       <>
@@ -88,12 +78,6 @@ export default function App() {
               <MDBNavbarItem>
                 <MDBNavbarLink onClick={toggleUnirCursoModal}>Unirse al curso</MDBNavbarLink>
               </MDBNavbarItem>
-              {/* <MDBNavbarItem>
-                <MDBNavbarLink href={'/CrearExamen/'+id}>Crear examen</MDBNavbarLink>
-              </MDBNavbarItem> */}
-              {/* <MDBNavbarItem>
-                <MDBNavbarLink href='/VerCurso'>Ver curso</MDBNavbarLink>
-              </MDBNavbarItem> */}
             </MDBNavbarNav>
             <MDBDropdown tag='li' className='nav-item dropleft' >
               <MDBDropdownToggle nav caret>
@@ -102,7 +86,6 @@ export default function App() {
 
               <MDBDropdownMenu className="dropdown-default ">
                 <MDBDropdownItem onClick={togglePerfilModal} href="#!">Perfil</MDBDropdownItem>
-                {/* <MDBDropdownItem onClick={toggleCrearCursoModal} href="#!">Crear curso</MDBDropdownItem> */}
                 <MDBDropdownItem onClick={toggleCrearTareaModal} href="#!">Crear tarea</MDBDropdownItem>
                 <MDBDropdownItem onClick={toggleCrearAnuncioModal} href="#!">Crear anuncio</MDBDropdownItem>
                 <MDBDropdownItem href="http://localhost:5000/auth/logout">Cerrar sesion</MDBDropdownItem>
@@ -112,19 +95,19 @@ export default function App() {
         </MDBContainer>
       </MDBNavbar>
 
-      <MDBModal tabIndex='-1' show={gridPerfilModal}>
+      <MDBModal staticBackdrop tabIndex='-1' show={gridPerfilModal} setShow={setGridPerfilModal}>
         <PerfilModal togglePerfilModal={togglePerfilModal}/>
       </MDBModal>
-      <MDBModal tabIndex='-1' show={gridCrearCursoModal}>
+      <MDBModal staticBackdrop tabIndex='-1' show={gridCrearCursoModal} setShow={setGridCrearCursoModal}>
         <CrearCursoModal toggleCrearCursoModal={toggleCrearCursoModal}/>
       </MDBModal>
-      <MDBModal tabIndex='-1' show={gridUnirCursoModal}>
+      <MDBModal staticBackdrop tabIndex='-1' show={gridUnirCursoModal} setShow={setGridUnirCursoModal}>
         <UnirCursoModal toggleUnirCursoModal={toggleUnirCursoModal}/>
       </MDBModal>
-      <MDBModal tabIndex='-1' show={gridCrearAnuncioModal}>
+      <MDBModal staticBackdrop tabIndex='-1' show={gridCrearAnuncioModal} setShow={setGridCrearAnuncioModal}>
         <CrearAnuncioModal toggleCrearAnuncioModal={toggleCrearAnuncioModal}/>
       </MDBModal>
-      <MDBModal tabIndex='-1' show={gridCrearTareaModal}>
+      <MDBModal staticBackdrop tabIndex='-1' show={gridCrearTareaModal} setShow={setGridCrearTareaModal}>
         <CrearTareaModal toggleCrearTareaModal={toggleCrearTareaModal}/>
       </MDBModal>
       
