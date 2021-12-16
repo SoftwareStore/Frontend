@@ -2,12 +2,13 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Quiz from "react-quiz-component";
+import { MDBBtn } from 'mdb-react-ui-kit';
 
 
 
 function AlumnoExam() {
 
-    const {  codigo } = useParams()
+    const { id, codigo } = useParams()
     const [data, setdata] = useState()
     const [user, setuser] = useState()
     const [isLoading, setLoading] = useState(true);
@@ -34,7 +35,7 @@ function AlumnoExam() {
 
 
     return (
-        <div className="d-flex justify-content-center">
+        <div className="d-flex flex-column justify-content-center align-items-center">
             <Quiz quiz={data} onComplete={(grade) => {
                 if (grade.totalPoints !== 0) {
                     grade.course = codigo
@@ -51,6 +52,7 @@ function AlumnoExam() {
             }
 
             } />
+            <MDBBtn className='m-5' href={'/VerCurso/'+id}>Volver al curso</MDBBtn>
         </div>
     )
 }

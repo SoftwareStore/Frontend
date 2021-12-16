@@ -28,6 +28,7 @@ ReactDOM.render(
 
       <Route exact path="/" component={Home} />
       <Route exact path="/Login" component={Login} />
+
       <Route exact path="/Registro" component={Registro} />
       <Route exact path="/ListCurso" component={ListCurso} />
       <Route exact path="/VerCurso/:id" component={VerCurso} />
@@ -35,7 +36,7 @@ ReactDOM.render(
       <Route exact path="/TomarExamen/:id/:codigo" component={TomarExamen} />
       <Route exact path="/VerTarea/:id/:codigo" component={VerTarea} />
       <Route exact path="/About" component={About} />
-      <Router exact path="/VerNotas/:id" component={VerNotas} />
+      <Route exact path="/VerNotas/:id/:userCode" component={VerNotas} />
 
 
     </Router>

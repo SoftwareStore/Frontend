@@ -1,11 +1,12 @@
 import React from 'react'
 import HeaderSesion from '../../Components/Header/HeaderSesion'
-import VerNotasTemplate from '../../Components/VerNotas/VerNotas'
+import VerNotasTemplate from '../../Components/VerNotas/VerNotasTemplate'
 function VerNotas() {
     return (
         <div>
             <HeaderSesion/>
-            {/* <VerNotasTemplate/> */}
+            
+            <VerNotasTemplate/>
         </div>
     )
 }
